@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "education-api-sdk": [
+        "dist/education-api-sdk"
+      ],
+      "education-api-sdk/*": [
+        "dist/education-api-sdk/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
