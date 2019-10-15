@@ -1,33 +1,37 @@
 import {HttpClient} from '@angular/common/http';
 import {Adapter} from '../adapters/adapter';
-import {SearchOptions} from '../options/search-options';
-import {Observable} from 'rxjs';
+import {ListOptions} from '../options/list-options';
 import {map} from 'rxjs/operators';
-import {Model} from '../models/model';
+import {Model, ModelId} from '../models/model';
 import {DataResponse} from '../responses/data.response';
 import {PaginatedResponse} from '../responses/paginated.response';
+import {RelationReadOptions} from '../options/relation-read-options';
+import {RelationListOptions} from '../options/relation-list-options';
+import {UpdateOptions} from '../options/update-options';
+import {ReadOptions} from '../options/read-options';
+import {CreateOptions} from '../options/create-options';
+import {DefaultAdapter} from '../adapters/default.adapter';
+import {DeleteOptions} from '../options/delete-options';
+import {RelationReorderOptions} from '../options/relation-reorder-options';
 
 /**
- * Base class to make endpoints.
+ * Base class to make API endpoints.
  */
 export abstract class Endpoint<T extends Model> {
-  protected readonly defaultListOptions: SearchOptions = {
-    query: null,
-    page: 0,
-    per_page: 100,
-    sort_by: 'id',
-    sort_dir: 'asc',
-    filters: [],
-  };
-
   protected constructor(
     protected http: HttpClient,
     protected base: string,
     protected endpoint: string = null,
-    protected adapter: Adapter<T> = null,
+    protected defaultAdapter: Adapter<T> = null,
   ) {
-    if (this.endpoint && !this.endpoint.startsWith('/')) {
-      this.endpoint = `/${this.endpoint}`;
+    // Remove first slash if needed
+    if (this.endpoint.charAt(0) === '/') {
+      this.endpoint = this.endpoint.substr(1);
+    }
+
+    // Create a default adapter of none was passed
+    if (defaultAdapter === null) {
+      this.defaultAdapter = new DefaultAdapter<T>();
     }
   }
 
@@ -35,25 +39,30 @@ export abstract class Endpoint<T extends Model> {
    * Get the base url for the endpoint.
    */
   protected get url(): string {
-    return `${this.base}${this.endpoint}`;
+    return `${this.base}/${this.endpoint}`;
   }
 
   /**
-   * Make the url part for the key.
-   * @param key The key.
+   * Generate the selector to target models. By default, it :key/:value and :key parameter is ignored if :key equals id.
+   * @param key The key selector.
+   * @param id The id selector.
    */
-  protected makeKey(key: keyof T) {
-    return key === 'id' ? '' : `${key}/`;
+  protected selector<U extends Model = T>(key: keyof U, id: ModelId): string {
+    if (!key) {
+      key = 'id';
+    }
+
+    return (key === 'id' ? '' : `${key}/`) + id;
   }
 
   /**
-   * Generate the querystring for the search query.
-   * @param options The search options.
-   * @see SearchOptions
+   * Generate the querystring for the list requests.
+   * @param options The list request options.
+   * @see ListOptions
    */
-  protected searchQueryString(options: Partial<SearchOptions>): string {
+  protected searchQueryString<U = T>(options: ListOptions<U>): string {
     const parts: string[] = [];
-    const isUsable = (...keys: (keyof SearchOptions)[]) => keys.map(key => key in options && options[key] !== null);
+    const isUsable = (...keys: (keyof ListOptions<U>)[]) => keys.map(key => key in options && options[key] !== null);
 
     if (isUsable('query')) {
       parts.push(`q=${options.query}`);
@@ -86,15 +95,27 @@ export abstract class Endpoint<T extends Model> {
   }
 
   /**
-   * Make default search.
-   * @param options The search options.
-   * @see SearchOptions
+   * Extract the adapter from the options or the default one.
+   * @param options The request options.
    */
-  protected defaultSearch(options: Partial<SearchOptions> = {}): Observable<PaginatedResponse<T>> {
+  private getAdapter<U>(options: { adapter?: Adapter<U> }): Adapter<U> {
+    if (options.hasOwnProperty('defaultAdapter')) {
+      return options.adapter;
+    } else {
+      return this.defaultAdapter;
+    }
+  }
+
+  /**
+   * List the models.
+   * @param options The list request options.
+   * @see ListOptions
+   */
+  protected defaultList(options: ListOptions<T> = {}) {
     return this.http.get(`${this.url}${this.searchQueryString(options)}`)
       .pipe(
         map((response: PaginatedResponse<T>) => {
-          response.data = this.adapter.adaptMany(response.data);
+          response.data = this.getAdapter<T>(options).adaptMany(response.data);
           return response;
         })
       );
@@ -103,52 +124,104 @@ export abstract class Endpoint<T extends Model> {
   /**
    * Create a model.
    * @param model The model.
+   * @param options The create request options.
+   * @see CreateOptions
    */
-  protected defaultCreate(model: T) {
-    return this.http.post(this.url, this.adapter.serialize(model))
-      .pipe(
-        map((response: DataResponse<T>) => {
-          response.data = this.adapter.adapt(response.data);
-          return response;
-        })
-      );
+  protected defaultCreate(model: T, options: CreateOptions<T> = {}) {
+    return this.http.post(this.url, this.getAdapter<T>(options).serialize(model))
+      .pipe(map((response: DataResponse<T>) => {
+        response.data = this.getAdapter<T>(options).adapt(response.data);
+        return response;
+      }));
   }
 
   /**
    * Read a model.
-   * @param identifier The model identifier.
-   * @param key The model key (id by default).
+   * @param id The model id.
+   * @param options The read request options.
+   * @see ReadOptions
    */
-  protected defaultRead(identifier: string | number, key: keyof T = 'id'): Observable<DataResponse<T>> {
-    return this.http.get(`${this.url}/${this.makeKey(key)}${identifier}`)
-      .pipe(
-        map((response: DataResponse<T>) => {
-          response.data = this.adapter.adapt(response.data);
-          return response;
-        })
-      );
+  protected defaultRead(id: ModelId, options: ReadOptions<T> = {}) {
+    return this.http.get(`${this.url}/${this.selector(options.key, id)}`)
+      .pipe(map((response: DataResponse<T>) => {
+        response.data = this.getAdapter<T>(options).adapt(response.data);
+        return response;
+      }));
   }
 
   /**
    * Update a model.
-   * @param identifier The model identifier.
-   * @param key The model key (id by default).
+   * @param id The model id.
    * @param model The model.
+   * @param options The update request options.
+   * @see UpdateOptions
    */
-  protected defaultUpdate(identifier: string | number, key: keyof T = 'id', model: T) {
-    return this.http.patch(`${this.url}/${this.makeKey(key)}${identifier}`, this.adapter.serialize(model))
+  protected defaultUpdate(id: ModelId, model: T, options: UpdateOptions<T> = {}) {
+    const data = this.getAdapter<T>(options).serialize(model);
+
+    return this.http.patch(`${this.url}/${this.selector(options.key, id)}`, data)
       .pipe(map((response: DataResponse<T>) => {
-        response.data = this.adapter.adapt(response.data);
+        response.data = this.getAdapter<T>(options).adapt(response.data);
         return response;
       }));
   }
 
   /**
    * Delete a model.
-   * @param identifier The model identifier.
-   * @param key The model key (id by default).
+   * @param id The model id.
+   * @param options The delete request options.
+   * @see DeleteOptions
+   *
+   * TODO: Decide of the shape of the deletion response.
    */
-  protected defaultDelete(identifier: string | number, key: keyof T = 'id') {
-    return this.http.get(`${this.url}/${this.makeKey(key)}${identifier}`);
+  protected defaultDelete(id: ModelId, options: DeleteOptions<T> = {}) {
+    return this.http.delete(`${this.url}/${this.selector(options.key, id)}`);
+  }
+
+  /**
+   * Retrieve the related associated model.
+   * @param id The current model id.
+   * @param relation The relation.
+   * @param options The relation list request options.
+   * @see RelationListOptions
+   */
+  protected defaultRelationList<U extends Model>(id: ModelId, relation: string, options: RelationListOptions<U>) {
+    return this.http.get(`${this.url}/${this.selector<U>(options.key, id)}/${relation}${this.searchQueryString<U>(options)}`)
+      .pipe(map((response: PaginatedResponse<U>) => {
+        response.data = this.getAdapter<U>(options).adaptMany(response.data);
+        return response;
+      }));
+  }
+
+  /**
+   * Retrieve the related associated model.
+   * @param id The current model id.
+   * @param relation The relation.
+   * @param options The relation read request options.
+   * @see RelationReadOptions
+   */
+  protected defaultRelationRead<U extends Model>(id: ModelId, relation: string, options: RelationReadOptions<U> = {}) {
+    return this.http.get(`${this.url}/${this.selector<U>(options.key, id)}/${relation}`)
+      .pipe(map((response: DataResponse<U>) => {
+        response.data = this.getAdapter<U>(options).adapt(response.data);
+        return response;
+      }));
+  }
+
+  /**
+   * Reorder the related associated models. Can also be used to manage the associated models.
+   * @param id The current model id.
+   * @param relation The relation.
+   * @param modelIds The model ids, given in the desired order.
+   * @param options The relation reorder request options.
+   * @see RelationReorderOptions
+   */
+  protected defaultRelationReorder<U extends Model>(id: ModelId, relation: string, modelIds: ModelId[],
+                                                    options: RelationReorderOptions<U> = {}) {
+    return this.http.patch(`${this.url}/${this.selector<U>(options.key, id)}/${relation}`, modelIds)
+      .pipe(map((response: PaginatedResponse<U>) => {
+        response.data = this.getAdapter<U>(options).adapt(response.data);
+        return response;
+      }));
   }
 }

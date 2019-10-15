@@ -1,21 +1,26 @@
 import {Adapter} from './adapter';
+import {LaxPartial} from './lax-partial';
+
+export interface AdapterConfig {
+  dates: string[];
+}
 
 /**
- * The default adapter.
+ * The default defaultAdapter.
  */
 export class DefaultAdapter<T> implements Adapter<T> {
-  constructor(
-    private modelConstructor: new () => T,
-    protected dates: string[] = ['created_at', 'updated_at']
-  ) {
+  protected dates: string[] = ['created_at', 'updated_at'];
+
+  constructor(config: Partial<AdapterConfig> = {}) {
+    Object.keys(config).forEach(key => this[key] = config[key]);
   }
 
   /**
    * Adapt a raw data to the model.
    * @param raw The raw data (from the API).
    */
-  adapt(raw: Partial<T>): T {
-    const model = Object.assign(new this.modelConstructor(), raw);
+  adapt(raw: LaxPartial<T>): LaxPartial<T> {
+    const model = Object.assign({}, raw);
 
     this.dates.forEach(date => {
       if (date in model && model[date] !== null) {
@@ -30,7 +35,7 @@ export class DefaultAdapter<T> implements Adapter<T> {
    * Adapt an array of raw data to an array of models.
    * @param raw The raw data array (from the API).
    */
-  adaptMany(raw: (any | Partial<T>)[]): T[] {
+  adaptMany(raw: LaxPartial<T>[]): LaxPartial<T>[] {
     return raw.map(item => this.adapt(item));
   }
 
@@ -38,7 +43,15 @@ export class DefaultAdapter<T> implements Adapter<T> {
    * Serialize a model to a valid API object.
    * @param model The model.
    */
-  serialize(model: T): Partial<T> {
+  serialize(model: LaxPartial<T>): LaxPartial<T> {
+    const raw = Object.assign({}, model);
+
+    this.dates.forEach(date => {
+      if (date in raw && raw[date] !== null) {
+        raw[date] = raw[date].toISOString();
+      }
+    });
+
     return Object.assign({}, model);
   }
 
@@ -46,7 +59,7 @@ export class DefaultAdapter<T> implements Adapter<T> {
    * Serialize an array of models to a valid array of API objects.
    * @param models The array of models.
    */
-  serializeMany(models: T[]): (any | Partial<T>)[] {
+  serializeMany(models: LaxPartial<T>[]): LaxPartial<T>[] {
     return models.map(model => this.serialize(model));
   }
 }

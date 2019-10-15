@@ -4,7 +4,7 @@ import {Model} from '../lib/models/model';
 
 export type ProductType = 'pack' | 'training' | 'section' | 'lesson';
 
-export class Product extends Model<number> {
+export interface Product extends Model<number> {
   name: string;
   slug: string;
   type: ProductType;

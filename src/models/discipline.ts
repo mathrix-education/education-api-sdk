@@ -2,7 +2,7 @@ import {Model} from '../lib/models/model';
 
 // tslint:disable:variable-name
 
-export class Discipline extends Model<number> {
+export interface Discipline extends Model<number> {
   name: string;
   slug: string;
   beta: boolean;

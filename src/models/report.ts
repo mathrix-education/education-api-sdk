@@ -5,7 +5,7 @@ import {Model} from '../lib/models/model';
 export type ReportType = 'display' | 'spelling' | 'wrong' | 'other';
 export type ReportStatus = 'todo';
 
-export class Report extends Model<number> {
+export interface Report extends Model<number> {
   type: ReportType;
   content: string;
   status: ReportStatus;

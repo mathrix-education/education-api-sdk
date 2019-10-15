@@ -18,7 +18,7 @@ export class GradesEndpoint extends Endpoint<Grade> {
       http,
       config.baseUrl,
       'grades',
-      new DefaultAdapter(Grade)
+      new DefaultAdapter<Grade>()
     );
   }
 
@@ -27,6 +27,6 @@ export class GradesEndpoint extends Endpoint<Grade> {
    * List the grades.
    */
   list() {
-    return this.defaultSearch();
+    return this.defaultList();
   }
 }

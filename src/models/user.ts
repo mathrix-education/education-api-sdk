@@ -2,7 +2,7 @@ import {Model} from '../lib/models/model';
 
 // tslint:disable:variable-name
 
-export class User extends Model<number> {
+export interface User extends Model<number> {
   username: string;
   email: string;
   firstname: string;

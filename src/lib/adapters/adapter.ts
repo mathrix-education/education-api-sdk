@@ -1,9 +1,11 @@
+import {LaxPartial} from './lax-partial';
+
 export interface Adapter<T> {
-  adapt(raw: any | Partial<T>): T;
+  adapt(raw: LaxPartial<T>): LaxPartial<T>;
 
-  adaptMany(raw: (any | Partial<T>)[]): T[];
+  adaptMany(raw: LaxPartial<T>[]): LaxPartial<T>[];
 
-  serialize(model: T): any | Partial<T>;
+  serialize(model: LaxPartial<T>): LaxPartial<T>;
 
-  serializeMany(models: T[]): (any | Partial<T>)[];
+  serializeMany(models: LaxPartial<T>[]): LaxPartial<T>[];
 }

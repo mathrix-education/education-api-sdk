@@ -2,7 +2,7 @@ import {Model} from '../lib/models/model';
 
 // tslint:disable:variable-name
 
-export class Post extends Model<number> {
+export interface Post extends Model<number> {
   title: string;
   slug: string;
   module_id: number;

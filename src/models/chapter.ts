@@ -2,7 +2,7 @@ import {Model} from '../lib/models/model';
 
 // tslint:disable:variable-name
 
-export class Chapter extends Model<number> {
+export interface Chapter extends Model<number> {
   name: string;
   slug: string;
   order: number;

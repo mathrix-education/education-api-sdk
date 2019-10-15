@@ -4,7 +4,7 @@ import {Model} from '../lib/models/model';
 
 export type ModuleType = 'course' | 'test' | 'mcq' | 'flashcard';
 
-export class Module extends Model<number> {
+export interface Module extends Model<number> {
   type: ModuleType;
   content: any;
   questions: any[];

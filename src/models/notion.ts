@@ -4,7 +4,7 @@ import {Model} from '../lib/models/model';
 
 export type NotionType = 'normal' | 'premium' | 'reminder' | 'further';
 
-export class Notion extends Model<number> {
+export interface Notion extends Model<number> {
   name: string;
   type: NotionType;
   visible: boolean;

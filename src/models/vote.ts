@@ -4,7 +4,7 @@ import {Model} from '../lib/models/model';
 
 export type VoteValue = 1 | -1;
 
-export class Vote extends Model<number> {
+export interface Vote extends Model<number> {
   value: VoteValue;
   comment_id: number;
   user_id: number;

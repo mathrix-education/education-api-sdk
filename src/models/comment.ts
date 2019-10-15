@@ -2,7 +2,7 @@ import {Model} from '../lib/models/model';
 
 // tslint:disable:variable-name
 
-export class Comment extends Model<number> {
+export interface Comment extends Model<number> {
   content: string;
   parent_id: number;
   user_id: number;
