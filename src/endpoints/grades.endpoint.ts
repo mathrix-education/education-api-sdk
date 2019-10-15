@@ -73,7 +73,7 @@ export class GradesEndpoint extends Endpoint<Grade> {
    * GET /grades/{gradeId}/disciplines/visible
    * @param gradeId The grade id.
    */
-  listDisciplineVisible(gradeId: number) {
+  listDisciplinesVisible(gradeId: number) {
     return this.defaultRelationList<Discipline>(gradeId, 'disciplines',
       {
         filters: [
@@ -87,7 +87,7 @@ export class GradesEndpoint extends Endpoint<Grade> {
    * GET /grades/{gradeId}/disciplines
    * @param gradeId The grade id.
    */
-  listDiscipline(gradeId: number) {
+  listDisciplines(gradeId: number) {
     return this.defaultRelationList<Discipline>(gradeId, 'disciplines',
       {
         filters: [
@@ -102,7 +102,7 @@ export class GradesEndpoint extends Endpoint<Grade> {
    * @param gradeId The grade id.
    * @param chapterId The chapter id.
    */
-  listChapter(gradeId: number, chapterId: number) {
+  listChapters(gradeId: number, chapterId: number) {
     return this.defaultRelationList<Chapter>(gradeId, 'disciplines',
       {
         filters: [
@@ -118,7 +118,7 @@ export class GradesEndpoint extends Endpoint<Grade> {
    * @param gradeId The grade id.
    * @param chapterId The chapter id.
    */
-  listChapterVisible(gradeId: number, chapterId: number) {
+  listChaptersVisible(gradeId: number, chapterId: number) {
     return this.defaultRelationList<Chapter>(gradeId, 'disciplines',
       {
         filters: [
