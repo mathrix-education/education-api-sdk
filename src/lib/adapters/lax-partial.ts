@@ -1,1 +1,1 @@
-export type LaxPartial<T> = any | Partial<T>;
+export type LaxPartial<T> = any & Partial<T> | Partial<T>;

@@ -1,12 +1,14 @@
 import {Endpoint} from '../lib/endpoints/endpoint';
 import {User} from '../models/user';
-import {Observable} from 'rxjs';
 import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {SDKConfig} from '../education-api-sdk.module';
 import {EducationAPISDKConfig} from '../education-api-sdk.config';
-import {DefaultAdapter} from '../lib/adapters/default.adapter';
-import {DataResponse} from '../lib/responses/data.response';
+import {ListOptions} from '../lib/options/list-options';
+import {Card} from '../models/card';
+import {Product} from '../models/product';
+import {Purchase} from '../models/purchase';
+import {Subscription} from '../models/subscription';
 
 /**
  * /users endpoint.
@@ -16,28 +18,79 @@ import {DataResponse} from '../lib/responses/data.response';
 })
 export class UsersEndpoint extends Endpoint<User> {
   constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
-    super(
-      http,
-      config.baseUrl,
-      'users',
-      new DefaultAdapter(User)
-    );
+    super(http, config.baseUrl, 'users');
   }
 
   /**
-   * GET /users/:id
-   * @param id The user id.
+   * GET /users
+   * @param options The list user request options.
    */
-  read(id: number): Observable<DataResponse<User>> {
-    return this.defaultRead(id);
+  list(options: ListOptions<User>) {
+    return this.defaultList(options);
   }
 
   /**
-   * PATCH /users/:id
-   * @param id The user id.
+   * GET /users
+   * @param user The user.
+   */
+  create(user: Partial<User>) {
+    return this.defaultCreate(user);
+  }
+
+  /**
+   * GET /users/{userId}
+   * @param userId The user id.
+   */
+  read(userId: number) {
+    return this.defaultRead(userId, {expand: ['grade']});
+  }
+
+  /**
+   * PATCH /users/{userId}
+   * @param userId The user id.
    * @param model The user.
    */
-  update(id: number, model: User): Observable<DataResponse<User>> {
-    return this.defaultUpdate(id, 'id', model);
+  update(userId: number, model: User) {
+    return this.defaultUpdate(userId, model);
+  }
+
+  /**
+   * DELETE /users/{userId}/cards
+   * @param userId The user id.
+   */
+  delete(userId: number) {
+    return this.defaultDelete(userId);
+  }
+
+  /**
+   * GET /users/{userId}/cards
+   * @param userId The user id.
+   */
+  listCards(userId: number) {
+    return this.defaultRelationList<Card>(userId, 'cards');
+  }
+
+  /**
+   * GET /users/{userId}/products
+   * @param userId The user id.
+   */
+  listProducts(userId: number) {
+    return this.defaultRelationList<Product>(userId, 'products');
+  }
+
+  /**
+   * GET /users/{userId}/purchases
+   * @param userId The user id.
+   */
+  listPurchases(userId: number) {
+    return this.defaultRelationList<Purchase>(userId, 'purchases');
+  }
+
+  /**
+   * GET /users/{userId}/subscriptions
+   * @param userId The user id.
+   */
+  listSubscriptions(userId: number) {
+    return this.defaultRelationList<Subscription>(userId, 'subscriptions');
   }
 }

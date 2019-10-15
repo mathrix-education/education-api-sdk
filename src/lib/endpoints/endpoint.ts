@@ -127,7 +127,7 @@ export abstract class Endpoint<T extends Model> {
    * @param options The create request options.
    * @see CreateOptions
    */
-  protected defaultCreate(model: T, options: CreateOptions<T> = {}) {
+  protected defaultCreate(model: Partial<T>, options: CreateOptions<T> = {}) {
     return this.http.post(this.url, this.getAdapter<T>(options).serialize(model))
       .pipe(map((response: DataResponse<T>) => {
         response.data = this.getAdapter<T>(options).adapt(response.data);
@@ -156,7 +156,7 @@ export abstract class Endpoint<T extends Model> {
    * @param options The update request options.
    * @see UpdateOptions
    */
-  protected defaultUpdate(id: ModelId, model: T, options: UpdateOptions<T> = {}) {
+  protected defaultUpdate(id: ModelId, model: Partial<T>, options: UpdateOptions<T> = {}) {
     const data = this.getAdapter<T>(options).serialize(model);
 
     return this.http.patch(`${this.url}/${this.selector(options.key, id)}`, data)
@@ -185,7 +185,7 @@ export abstract class Endpoint<T extends Model> {
    * @param options The relation list request options.
    * @see RelationListOptions
    */
-  protected defaultRelationList<U extends Model>(id: ModelId, relation: string, options: RelationListOptions<U>) {
+  protected defaultRelationList<U extends Model>(id: ModelId, relation: string, options: RelationListOptions<U> = {}) {
     return this.http.get(`${this.url}/${this.selector<U>(options.key, id)}/${relation}${this.searchQueryString<U>(options)}`)
       .pipe(map((response: PaginatedResponse<U>) => {
         response.data = this.getAdapter<U>(options).adaptMany(response.data);
