@@ -3,7 +3,7 @@ import {Model} from '../lib/models/model';
 // tslint:disable:variable-name
 
 
-export interface Subscription extends Model<number> {
+export interface Subscription extends Model<string> {
   type: 'stripe' | 'braintree';
   cancel_at: Date;
   cancel_at_period_end: boolean;
@@ -16,5 +16,5 @@ export interface Subscription extends Model<number> {
   trial_end: Date;
   latest_invoice: any;
   payment_method: any;
-
 }
+

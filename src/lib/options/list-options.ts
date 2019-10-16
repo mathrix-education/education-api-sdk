@@ -6,8 +6,9 @@ export interface StrictListOptions<T> {
   query: string;
   page: number;
   per_page: number;
-  sort_by: string;
+  sort_by: keyof T;
   sort_dir: 'asc' | 'desc';
   filters: ListFilter<T>[];
 }
+
 export type ListOptions<T> = Partial<StrictListOptions<T>>;

@@ -127,7 +127,7 @@ export abstract class Endpoint<T extends Model> {
    * @param options The create request options.
    * @see CreateOptions
    */
-  protected defaultCreate(model: Partial<T>, options: CreateOptions<T> = {}) {
+  protected defaultCreate(model: T, options: CreateOptions<T> = {}) {
     return this.http.post(this.url, this.getAdapter<T>(options).serialize(model))
       .pipe(map((response: DataResponse<T>) => {
         response.data = this.getAdapter<T>(options).adapt(response.data);
