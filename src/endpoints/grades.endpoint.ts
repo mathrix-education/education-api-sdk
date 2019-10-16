@@ -9,6 +9,7 @@ import {CreateOptions} from '../lib/options/create-options';
 import {UpdateOptions} from '../lib/options/update-options';
 import {Discipline} from '../models/discipline';
 import {Chapter} from '../models/chapter';
+import {DataResponse} from '../lib/responses/data.response';
 
 /**
  * /grades endpoint.
@@ -70,17 +71,20 @@ export class GradesEndpoint extends Endpoint<Grade> {
   }
 
   /**
-   * GET /grades/{gradeId}/disciplines/visible
-   * @param gradeId The grade id.
+   * GET /grades/slug/${gradeSlug}
+   * @param slug: The grade slug.
    */
-  listDisciplinesVisible(gradeId: number) {
-    return this.defaultRelationList<Discipline>(gradeId, 'disciplines',
-      {
-        filters: [
-          ['visible', '=', true]
-        ]
-      }
-    );
+  bySlug(slug: string) {
+    return this.defaultList({filters: [['slug', '=', slug]]});
+  }
+
+  /**
+   * GET /grades/slug/{gradeSlug}/chapters/slug/{chapterSlug}
+   * @param gradeSlug The grade slug.
+   * @param chapterSlug The chapter slug.
+   */
+  chapterBySlug(gradeSlug: string, chapterSlug: string) {
+    return this.http.get<DataResponse<Chapter>>(`${this.url}/slug/${gradeSlug}/chapters/slug/${chapterSlug}`);
   }
 
   /**
@@ -92,6 +96,20 @@ export class GradesEndpoint extends Endpoint<Grade> {
       {
         filters: [
           ['visible', '=', false]
+        ]
+      }
+    );
+  }
+
+  /**
+   * GET /grades/{gradeId}/disciplines/visible
+   * @param gradeId The grade id.
+   */
+  listDisciplinesVisible(gradeId: number) {
+    return this.defaultRelationList<Discipline>(gradeId, 'disciplines',
+      {
+        filters: [
+          ['visible', '=', true]
         ]
       }
     );
@@ -114,6 +132,15 @@ export class GradesEndpoint extends Endpoint<Grade> {
   }
 
   /**
+   * GET /grades/slug/{gradeSlug}/chapters/slug/{chapterSlug}
+   * @param gradeSlug The grade slug.
+   * @param chapterSlug The chapter slug.
+   */
+  listChaptersBySlug(gradeSlug: string, chapterSlug: string) {
+    return this.http.get<DataResponse<Chapter>>(`${this.url}/grades/slug/${gradeSlug}/chapters/${chapterSlug}`);
+  }
+
+  /**
    * GET /grades/{gradeId}/disciplines
    * @param gradeId The grade id.
    * @param chapterId The chapter id.
@@ -123,7 +150,7 @@ export class GradesEndpoint extends Endpoint<Grade> {
       {
         filters: [
           ['id', '=', chapterId],
-          ['visible', '=', false]
+          ['visible', '=', true]
         ]
       }
     );

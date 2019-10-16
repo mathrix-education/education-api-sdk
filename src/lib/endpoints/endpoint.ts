@@ -47,7 +47,7 @@ export abstract class Endpoint<T extends Model> {
    * @param key The key selector.
    * @param id The id selector.
    */
-  protected selector<U extends Model = T>(key: keyof U, id: ModelId): string {
+  protected selector<U extends Model = T>(key: keyof U, id?: ModelId): string {
     if (!key) {
       key = 'id';
     }
@@ -60,7 +60,7 @@ export abstract class Endpoint<T extends Model> {
    * @param options The list request options.
    * @see ListOptions
    */
-  protected searchQueryString<U = T>(options: ListOptions<U>): string {
+  protected searchQueryString<U = T>(options: ListOptions<U> | RelationListOptions<U>): string {
     const parts: string[] = [];
     const isUsable = (...keys: (keyof ListOptions<U>)[]) => keys.map(key => key in options && options[key] !== null);
 

@@ -25,19 +25,17 @@ export class ActivitiesEndpoint extends Endpoint<Activity> {
 
   /**
    * GET /activities
-   * @param options The list activity request options.
    */
-  list(options: ListOptions<Activity>) {
-    return this.defaultList(options);
+  list() {
+    return this.defaultList();
   }
 
   /**
    * POST /activities
    * @param activity The activity model.
-   * @param options The create activity request options.
    */
-  create(activity: Activity, options: CreateOptions<Activity>) {
-    return this.defaultCreate(activity, options);
+  create(activity: Activity) {
+    return this.defaultCreate(activity);
   }
 
   /**
@@ -76,5 +74,13 @@ export class ActivitiesEndpoint extends Endpoint<Activity> {
    */
   reorderModules(activityId: number, moduleIds: number[], options: RelationReorderOptions<Module> = {}) {
     return this.defaultRelationReorder<Module>(activityId, 'modules', moduleIds, options);
+  }
+
+  mark(activityId: number, status) {
+    return this.http.patch(`${this.url}/${activityId}/mark`, {status});
+  }
+
+  unmark(activityId: number, status) {
+    return this.http.patch(`${this.url}/${activityId}/unmark`, {});
   }
 }

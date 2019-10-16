@@ -4,7 +4,6 @@ import {SDKConfig} from '../education-api-sdk.module';
 import {EducationAPISDKConfig} from '../education-api-sdk.config';
 import {Search} from '../models/search';
 import {Endpoint} from '../lib/endpoints/endpoint';
-import {Observable} from 'rxjs';
 import {DataResponse} from '../lib/responses/data.response';
 
 export class SearchEndpoint extends Endpoint<Search> {
@@ -13,10 +12,12 @@ export class SearchEndpoint extends Endpoint<Search> {
   }
 
   /**
+   * Search for query string into chapter names and videos.
    * GET /modules
-   * List the modules.
+   * @param gradeId The grade id.
+   * @param query The query string.
    */
-  search(gradeId: number): Observable<DataResponse<Search>> {
-    return this.defaultList(gradeId, ' ', {});
+  search(gradeId: number, query: string) {
+    return this.http.get<DataResponse<Search>>(`${this.url}/${gradeId}/${query}`);
   }
 }

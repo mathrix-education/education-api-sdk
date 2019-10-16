@@ -1,0 +1,16 @@
+import {Model} from '../lib/models/model';
+
+// tslint:disable:variable-name
+
+export type MimeType = 'application/pdf' | 'image/gif' | 'image/jpeg' | 'image/svg+xml' | 'image/png' | 'video/mp4';
+
+export interface Directory extends Model<string> {
+  type: 'file';
+  basename: string;
+  dirname: string;
+  mimetype: MimeType;
+  path: string;
+  size_kb: string;
+  timestamp: number;
+  url: string;
+}

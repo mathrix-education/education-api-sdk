@@ -4,6 +4,8 @@ import {Model} from '../lib/models/model';
 
 export type ActivityType = 'video' | 'course' | 'test' | 'exercise' | 'summary' | 'flashcard';
 
+export type MarkType = 'completed' | 'view' | 'to-revise';
+
 export interface Activity extends Model<number> {
   name: string;
   type: ActivityType;
