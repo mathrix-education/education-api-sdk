@@ -1,5 +1,6 @@
 import {Adapter} from './adapter';
 import {LaxPartial} from './lax-partial';
+import {Writable} from 'ts-essentials/dist/types';
 
 export interface AdapterConfig {
   dates: string[];
@@ -10,6 +11,7 @@ export interface AdapterConfig {
  */
 export class DefaultAdapter<T> implements Adapter<T> {
   protected dates: string[] = ['created_at', 'updated_at'];
+
 
   constructor(config: Partial<AdapterConfig> = {}) {
     Object.keys(config).forEach(key => this[key] = config[key]);
@@ -51,7 +53,6 @@ export class DefaultAdapter<T> implements Adapter<T> {
         raw[date] = raw[date].toISOString();
       }
     });
-
     return Object.assign({}, model);
   }
 

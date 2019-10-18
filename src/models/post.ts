@@ -8,4 +8,9 @@ export interface Post extends ModelWithDates<number> {
   module_id: number;
   category_id: number;
   user_id: number;
+  readonly deleted_at: string;
 }
+
+export type T = keyof Post;
+
+const u: T = 'created_at';

@@ -3,7 +3,6 @@ import {Post} from '../models/post';
 import {HttpClient} from '@angular/common/http';
 import {Inject} from '@angular/core';
 import {EducationAPISDKConfig} from '../education-api-sdk.config';
-import {CreateOptions} from '../lib/options/create-options';
 import {SDKConfig} from '../education-api-sdk.module';
 import {Create} from '../lib/adapters/create';
 

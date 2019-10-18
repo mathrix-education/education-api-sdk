@@ -6,5 +6,5 @@ export interface Model<T extends ModelId = ModelId> {
 
 export type ModelWithDates<T extends ModelId = ModelId> = Model<T> & {
   readonly created_at: Date;
-  readonly deleted_at: Date;
+  readonly updated_at: Date;
 };
