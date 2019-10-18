@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Inject} from '@angular/core';
 import {EducationAPISDKConfig} from '../education-api-sdk.config';
 import {SDKConfig} from '../education-api-sdk.module';
+import {Create} from '../lib/adapters/create';
 
 export class ReportsEndpoint extends Endpoint<Report> {
   constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
@@ -22,7 +23,7 @@ export class ReportsEndpoint extends Endpoint<Report> {
    * POST /reports
    * @param report The report model.
    */
-  create(report: Report) {
+  create(report: Create<Report>) {
     return this.defaultCreate(report);
   }
 

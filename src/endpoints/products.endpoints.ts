@@ -5,6 +5,7 @@ import {Inject} from '@angular/core';
 import {SDKConfig} from '../education-api-sdk.module';
 import {EducationAPISDKConfig} from '../education-api-sdk.config';
 import {CreateOptions} from '../lib/options/create-options';
+import {Create} from '../lib/adapters/create';
 
 export class ProductsEndpoint extends Endpoint<Product> {
   constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
@@ -23,7 +24,7 @@ export class ProductsEndpoint extends Endpoint<Product> {
    * POST /products
    * @param product The product model.
    */
-  create(product: Product) {
+  create(product: Create<Product>) {
     return this.defaultCreate(product);
   }
 

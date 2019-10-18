@@ -1,13 +1,11 @@
-import {Model} from '../lib/models/model';
+import {Model, ModelWithDates} from '../lib/models/model';
 
 // tslint:disable:variable-name
 
-export interface Comment extends Model<number> {
+export interface Comment extends ModelWithDates<number> {
   content: string;
   parent_id: number;
   user_id: number;
   module_id: number;
-  deleted_at: Date;
-  created_at: Date;
-  updated_at: Date;
+  readonly deleted_at: Date;
 }

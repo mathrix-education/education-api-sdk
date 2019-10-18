@@ -1,14 +1,13 @@
-import {Model} from '../lib/models/model';
+import {Model, ModelWithDates} from '../lib/models/model';
 
 // tslint:disable:variable-name
 
 
-export interface Subscription extends Model<string> {
+export interface Subscription extends ModelWithDates<string> {
   type: 'stripe' | 'braintree';
   cancel_at: Date;
   cancel_at_period_end: boolean;
   canceled_at: Date;
-  created_at: Date;
   current_period_start: Date;
   current_period_end: Date;
   customer: string;

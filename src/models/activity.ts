@@ -1,4 +1,4 @@
-import {Model} from '../lib/models/model';
+import {Model, ModelWithDates} from '../lib/models/model';
 
 // tslint:disable:variable-name
 
@@ -6,7 +6,7 @@ export type ActivityType = 'video' | 'course' | 'test' | 'exercise' | 'summary' 
 
 export type MarkType = 'completed' | 'view' | 'to-revise';
 
-export interface Activity extends Model<number> {
+export interface Activity extends ModelWithDates<number> {
   name: string;
   type: ActivityType;
   visible: boolean;
@@ -14,9 +14,7 @@ export interface Activity extends Model<number> {
   premium: boolean;
   reviewed: boolean;
   notion_id: number;
-  module_count: number;
-  created_at: Date;
-  updated_at: Date;
+  readonly module_count: number;
 }
 
 

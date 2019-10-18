@@ -1,8 +1,8 @@
-import {Model} from '../lib/models/model';
+import {Model, ModelWithDates} from '../lib/models/model';
 
 // tslint:disable:variable-name
 
-export interface Chapter extends Model<number> {
+export interface Chapter extends ModelWithDates<number> {
   name: string;
   slug: string;
   order: number;
@@ -11,6 +11,4 @@ export interface Chapter extends Model<number> {
   grade_id: number;
   notion_count: number;
   activity_count: number;
-  created_at: Date;
-  updated_at: Date;
 }

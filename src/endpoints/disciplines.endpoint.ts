@@ -7,6 +7,7 @@ import {EducationAPISDKConfig} from '../education-api-sdk.config';
 import {DefaultAdapter} from '../lib/adapters/default.adapter';
 import {CreateOptions} from '../lib/options/create-options';
 import {UpdateOptions} from '../lib/options/update-options';
+import {Create} from '../lib/adapters/create';
 
 /**
  * /disciplines endpoint.
@@ -37,7 +38,7 @@ export class DisciplinesEndpoint extends Endpoint<Discipline> {
    * @param discipline The discipline model.
    * @param options The create discipline request options.
    */
-  create(discipline: Discipline) {
+  create(discipline: Create<Discipline>) {
     return this.defaultCreate(discipline);
   }
 

@@ -1,10 +1,10 @@
-import {Model} from '../lib/models/model';
+import {Model, ModelWithDates} from '../lib/models/model';
 
 // tslint:disable:variable-name
 
 export type ProductType = 'pack' | 'training' | 'section' | 'lesson';
 
-export interface Product extends Model<number> {
+export interface Product extends ModelWithDates<number> {
   name: string;
   slug: string;
   type: ProductType;
@@ -15,6 +15,4 @@ export interface Product extends Model<number> {
   order: number;
   parent_id: number;
   module_id: number;
-  created_at: Date;
-  updated_at: Date;
 }

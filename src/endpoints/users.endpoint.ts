@@ -9,6 +9,7 @@ import {Card} from '../models/card';
 import {Product} from '../models/product';
 import {Purchase} from '../models/purchase';
 import {Subscription} from '../models/subscription';
+import {Create} from '../lib/adapters/create';
 
 /**
  * /users endpoint.
@@ -33,8 +34,8 @@ export class UsersEndpoint extends Endpoint<User> {
    * GET /users
    * @param user The user.
    */
-  create(user: Partial<User>) {
-    return this.defaultCreate(user);
+  create(user: Create<User>) {
+
   }
 
   /**

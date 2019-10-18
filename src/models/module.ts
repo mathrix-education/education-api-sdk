@@ -1,10 +1,10 @@
-import {Model} from '../lib/models/model';
+import {Model, ModelWithDates} from '../lib/models/model';
 
 // tslint:disable:variable-name
 
 export type ModuleType = 'course' | 'test' | 'mcq' | 'flashcard';
 
-export interface Module extends Model<number> {
+export interface Module extends ModelWithDates<number> {
   type: ModuleType;
   content: any;
   questions: any[];
@@ -20,6 +20,4 @@ export interface Module extends Model<number> {
   seo_description: string;
   order: number;
   activity_id: number;
-  created_at: Date;
-  updated_at: Date;
 }

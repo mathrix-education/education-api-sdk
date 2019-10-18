@@ -1,12 +1,10 @@
-import {Model} from '../lib/models/model';
+import {Model, ModelWithDates} from '../lib/models/model';
 
 // tslint:disable:variable-name
 
-export interface Discipline extends Model<number> {
+export interface Discipline extends ModelWithDates<number> {
   name: string;
   slug: string;
   beta: boolean;
   visible: boolean;
-  created_at: Date;
-  updated_at: Date;
 }

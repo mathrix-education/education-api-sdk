@@ -1,3 +1,4 @@
 import {Model} from '../models/model';
+import {Writable} from 'ts-essentials';
 
-export type Create<T extends Model> = Omit<T, 'id' | 'created_at' | 'updated_at'>;
+export type Create<T extends Model> = Writable<T>;

@@ -1,11 +1,9 @@
-import {Model} from '../lib/models/model';
+import {Model, ModelWithDates} from '../lib/models/model';
 
 // tslint:disable:variable-name
 
-export interface Purchase extends Model<number> {
+export interface Purchase extends ModelWithDates<number> {
   transaction_id: string;
   user_id: number;
   product_id: number;
-  created_at: Date;
-  updated_at: Date;
 }

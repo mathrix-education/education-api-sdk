@@ -8,9 +8,9 @@ export interface Directory extends Model<string> {
   type: 'file';
   basename: string;
   dirname: string;
-  mimetype: MimeType;
+  readonly mimetype: MimeType;
   path: string;
-  size_kb: string;
-  timestamp: number;
+  readonly size_kb: string;
+  readonly timestamp: number;
   url: string;
 }

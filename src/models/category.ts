@@ -1,10 +1,10 @@
-import {Model} from '../lib/models/model';
+import {Model, ModelWithDates} from '../lib/models/model';
 
 // tslint:disable:variable-name
 
-export interface Category extends Model<number> {
+export interface Category extends ModelWithDates<number> {
   name: string;
   slug: string;
-  created_at: Date;
-  updated_at: Date;
+  readonly created_at: Date;
+  readonly updated_at: Date;
 }
