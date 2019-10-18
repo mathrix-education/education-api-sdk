@@ -6,6 +6,7 @@ import {EducationAPISDKConfig} from '../education-api-sdk.config';
 import {CreateOptions} from '../lib/options/create-options';
 import {SDKConfig} from '../education-api-sdk.module';
 import {CommentAdapter} from '../adapters/comment.adapter';
+import {Create} from '../lib/adapters/create';
 
 export class CommentsEndpoint extends Endpoint<Comment> {
   constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
@@ -23,10 +24,9 @@ export class CommentsEndpoint extends Endpoint<Comment> {
   /**
    * POST /comments
    * @param comment The comment model.
-   * @param options The create comment request options.
    */
-  create(comment: Comment, options: CreateOptions<Comment>) {
-    return this.defaultCreate(comment, options);
+  create(comment: Create<Comment>) {
+    return this.defaultCreate(comment);
   }
 
   /**

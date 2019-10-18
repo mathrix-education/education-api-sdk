@@ -5,6 +5,7 @@ import {SDKConfig} from '../education-api-sdk.module';
 import {EducationAPISDKConfig} from '../education-api-sdk.config';
 import {Country} from '../models/country';
 import {ListOptions} from '../lib/options/list-options';
+import {Create} from '../lib/adapters/create';
 
 /**
  * /countries endpoint.
@@ -29,7 +30,7 @@ export class CountriesEndpoint extends Endpoint<Country> {
    * GET /countries
    * @param country The country.
    */
-  create(country: Partial<Country>) {
+  create(country: Create<Country>) {
     return this.defaultCreate(country);
   }
 

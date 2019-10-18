@@ -37,8 +37,8 @@ export class DisciplinesEndpoint extends Endpoint<Discipline> {
    * @param discipline The discipline model.
    * @param options The create discipline request options.
    */
-  create(discipline: Discipline, options: CreateOptions<Discipline>) {
-    return this.defaultCreate(discipline, options);
+  create(discipline: Discipline) {
+    return this.defaultCreate(discipline);
   }
 
   /**

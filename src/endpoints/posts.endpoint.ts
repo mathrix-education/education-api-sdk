@@ -5,6 +5,7 @@ import {Inject} from '@angular/core';
 import {EducationAPISDKConfig} from '../education-api-sdk.config';
 import {CreateOptions} from '../lib/options/create-options';
 import {SDKConfig} from '../education-api-sdk.module';
+import {Create} from '../lib/adapters/create';
 
 export class PostsEndpoint extends Endpoint<Post> {
   constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
@@ -22,10 +23,9 @@ export class PostsEndpoint extends Endpoint<Post> {
   /**
    * POST /posts
    * @param post The post model.
-   * @param options The create post request options.
    */
-  create(post: Post, options: CreateOptions<Post>) {
-    return this.defaultCreate(post, options);
+  create(post: Create<Post>) {
+    return this.defaultCreate(post);
   }
 
   /**

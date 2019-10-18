@@ -24,8 +24,8 @@ export class ModulesEndpoint extends Endpoint<Module> {
    * @param module The module model.
    * @param options The create module request options.
    */
-  create(module: Module, options: CreateOptions<Module>) {
-    return this.defaultCreate(module, options);
+  create(module: Module) {
+    return this.defaultCreate(module);
   }
 
   /**

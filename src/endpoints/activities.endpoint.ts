@@ -4,13 +4,12 @@ import {HttpClient} from '@angular/common/http';
 import {Inject, Injectable} from '@angular/core';
 import {SDKConfig} from '../education-api-sdk.module';
 import {EducationAPISDKConfig} from '../education-api-sdk.config';
-import {ListOptions} from '../lib/options/list-options';
 import {Module} from '../models/module';
 import {RelationListOptions} from '../lib/options/relation-list-options';
-import {CreateOptions} from '../lib/options/create-options';
 import {ReadOptions} from '../lib/options/read-options';
 import {UpdateOptions} from '../lib/options/update-options';
 import {RelationReorderOptions} from '../lib/options/relation-reorder-options';
+import {Create} from '../lib/adapters/create';
 
 /**
  * /activities endpoint.
@@ -34,7 +33,7 @@ export class ActivitiesEndpoint extends Endpoint<Activity> {
    * POST /activities
    * @param activity The activity model.
    */
-  create(activity: Activity) {
+  create(activity: Create<Activity>) {
     return this.defaultCreate(activity);
   }
 

@@ -5,7 +5,6 @@ import {Inject, Injectable} from '@angular/core';
 import {SDKConfig} from '../education-api-sdk.module';
 import {EducationAPISDKConfig} from '../education-api-sdk.config';
 import {DefaultAdapter} from '../lib/adapters/default.adapter';
-import {CreateOptions} from '../lib/options/create-options';
 import {UpdateOptions} from '../lib/options/update-options';
 import {Discipline} from '../models/discipline';
 import {Chapter} from '../models/chapter';
@@ -38,10 +37,9 @@ export class GradesEndpoint extends Endpoint<Grade> {
   /**
    * POST /grades
    * @param grade The grade model.
-   * @param options The create grade request options.
    */
-  create(grade: Grade, options: CreateOptions<Grade>) {
-    return this.defaultCreate(grade, options);
+  create(grade: Grade) {
+    return this.defaultCreate(grade);
   }
 
   /**

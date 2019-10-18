@@ -22,10 +22,9 @@ export class ProductsEndpoint extends Endpoint<Product> {
   /**
    * POST /products
    * @param product The product model.
-   * @param options The create product request options.
    */
-  create(product: Product, options: CreateOptions<Product>) {
-    return this.defaultCreate(product, options);
+  create(product: Product) {
+    return this.defaultCreate(product);
   }
 
   /**

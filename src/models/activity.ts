@@ -18,3 +18,7 @@ export interface Activity extends Model<number> {
   created_at: Date;
   updated_at: Date;
 }
+
+
+
+

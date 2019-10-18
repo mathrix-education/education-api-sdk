@@ -7,6 +7,7 @@ import {EducationAPISDKConfig} from '../education-api-sdk.config';
 import {DefaultAdapter} from '../lib/adapters/default.adapter';
 import {CreateOptions} from '../lib/options/create-options';
 import {UpdateOptions} from '../lib/options/update-options';
+import {Create} from '../lib/adapters/create';
 
 export class ChaptersEndpoint extends Endpoint<Chapter> {
   constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
@@ -29,10 +30,9 @@ export class ChaptersEndpoint extends Endpoint<Chapter> {
   /**
    * POST /chapters
    * @param chapter The chapter model.
-   * @param options The create chapter request options.
    */
-  create(chapter: Chapter, options: CreateOptions<Chapter>) {
-    return this.defaultCreate(chapter, options);
+  create(chapter: Create<Chapter>) {
+    return this.defaultCreate(chapter);
   }
 
   /**

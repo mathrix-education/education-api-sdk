@@ -13,6 +13,7 @@ import {CreateOptions} from '../options/create-options';
 import {DefaultAdapter} from '../adapters/default.adapter';
 import {DeleteOptions} from '../options/delete-options';
 import {RelationReorderOptions} from '../options/relation-reorder-options';
+import {Create} from '../adapters/create';
 
 /**
  * Base class to make API endpoints.
@@ -127,7 +128,7 @@ export abstract class Endpoint<T extends Model> {
    * @param options The create request options.
    * @see CreateOptions
    */
-  protected defaultCreate(model: T, options: CreateOptions<T> = {}) {
+  protected defaultCreate(model: Create<T>, options: CreateOptions<T> = {}) {
     return this.http.post(this.url, this.getAdapter<T>(options).serialize(model))
       .pipe(map((response: DataResponse<T>) => {
         response.data = this.getAdapter<T>(options).adapt(response.data);

@@ -32,8 +32,8 @@ export class NotionsEndpoint extends Endpoint<Notion> {
    * @param notion The notion model.
    * @param options The create notion request options.
    */
-  create(notion: Notion, options: CreateOptions<Notion>) {
-    return this.defaultCreate(notion, options);
+  create(notion: Notion) {
+    return this.defaultCreate(notion);
   }
 
   /**
