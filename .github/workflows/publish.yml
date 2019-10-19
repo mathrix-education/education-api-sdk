@@ -1,9 +1,10 @@
 name: Publish
-on: [push]  # master and dev branch only
-  branches:
-    - master
-    - dev
-    - dims/endpoints
+on:
+  push:  # master and dev branch only
+    branches:
+      - master
+      - dev
+      - 'dims/endpoints'
 jobs:
   build:
     strategy:
