@@ -4,9 +4,6 @@
   "Description": "Mathrix official api SDK",
   "private": false,
   "homepage": "https://github.com/mathrix-education/education-api-sdk",
-  "files": [
-    "dist"
-  ],
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/mathrix-education/education-api-sdk"
