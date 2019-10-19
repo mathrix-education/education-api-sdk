@@ -35,5 +35,5 @@ jobs:
             mv package.json.tmp package.json
           fi
           npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
