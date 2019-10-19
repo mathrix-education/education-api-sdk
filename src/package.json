@@ -1,7 +1,7 @@
 {
   "name": "@mathrix-education/education-api-sdk",
   "version": "1.0.0",
-  "Description": "Mathrix official api SDK",
+  "description": "Mathrix official api SDK",
   "private": false,
   "homepage": "https://github.com/mathrix-education/education-api-sdk",
   "repository": {
@@ -9,8 +9,6 @@
     "url": "ssh://git@github.com/mathrix-education/education-api-sdk"
   },
   "dependencies": {
-  },
-  "devDependencies": {
     "ts-essentials": "^3.0.2"
   },
   "publishConfig": {
