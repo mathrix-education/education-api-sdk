@@ -22,7 +22,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
       - name: Install
         run: npm install
-      - name: Build and publish
+      - name: Build
         run: |
           npm run ng build
           REF="${{ github.ref }}"
@@ -30,10 +30,14 @@ jobs:
           SHA="${{ github.sha }}"
           SHORT_SHA=${SHA:0:7}
           BUILD="${BRANCH}-${SHORT_SHA}"
+          cd dist
           if [[ "${BRANCH}" != "master" ]]; then
             jq ".version = .version + \"-${BUILD}\"" package.json > package.json.tmp
             mv package.json.tmp package.json
           fi
+      - name: Publish
+        run: |
+          cd dist
           npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
