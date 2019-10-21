@@ -2,15 +2,19 @@ import {Endpoint} from '../lib/endpoints/endpoint';
 import {HttpClient} from '@angular/common/http';
 import {DataResponse} from '../lib/responses/data.response';
 import {MessageResponse} from '../lib/responses/message.response';
+import {Injectable} from '@angular/core';
 
 type TokenDataResponse = DataResponse<{ token: string }>;
 
 /**
  * /auth endpoint.
  */
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthEndpoint extends Endpoint<any> {
   constructor(http: HttpClient) {
-    super(http, '/auth');
+    super(http, 'auth');
   }
 
   /**

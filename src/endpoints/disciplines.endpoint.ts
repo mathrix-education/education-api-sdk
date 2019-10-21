@@ -17,12 +17,7 @@ import {Create} from '../lib/adapters/create';
 })
 export class DisciplinesEndpoint extends Endpoint<Discipline> {
   constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
-    super(
-      http,
-      config.baseUrl,
-      'disciplines',
-      new DefaultAdapter<Discipline>()
-    );
+    super(http, config.baseUrl, 'disciplines', new DefaultAdapter<Discipline>());
   }
 
   /**
@@ -36,7 +31,6 @@ export class DisciplinesEndpoint extends Endpoint<Discipline> {
   /**
    * POST /disciplines
    * @param discipline The discipline model.
-   * @param options The create discipline request options.
    */
   create(discipline: Create<Discipline>) {
     return this.defaultCreate(discipline);
