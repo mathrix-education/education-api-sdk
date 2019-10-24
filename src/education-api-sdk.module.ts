@@ -1,4 +1,4 @@
-import {Injectable, Injector, ModuleWithProviders, NgModule} from '@angular/core';
+import {Inject, Injector, ModuleWithProviders, NgModule, PLATFORM_ID} from '@angular/core';
 import {EducationAPISDKConfig} from './education-api-sdk.config';
 import {HttpClientModule} from '@angular/common/http';
 import {JwtModule} from '@auth0/angular-jwt';
@@ -14,7 +14,8 @@ export function tokenGetter() {
     imports: [HttpClientModule,
       JwtModule.forRoot({
         config: {
-          tokenGetter
+          tokenGetter,
+          whitelistedDomains: ['api.mathrix.fr', 'dev.api.mathrix.fr'],
         },
       })
     ]
