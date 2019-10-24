@@ -3,13 +3,12 @@ import {EducationAPISDKConfig} from './education-api-sdk.config';
 import {HttpClientModule} from '@angular/common/http';
 import {JWT_OPTIONS, JwtModule} from '@auth0/angular-jwt';
 
-export function jwtOptionsFactory(config: EducationAPISDKConfig) {
+export function jwtOptionsFactory() {
   return {
     tokenGetter: () => {
-      console.log('hehe', config.authToken);
-      return localStorage.getItem(config.authToken);
+      return localStorage.getItem('rrr');
     },
-    domain: config.domains
+    whitelistedDomains: ['dev.api.mathrix.fr']
   };
 }
 
@@ -20,11 +19,9 @@ export function jwtOptionsFactory(config: EducationAPISDKConfig) {
         jwtOptionsProvider: {
           provide: JWT_OPTIONS,
           useFactory: jwtOptionsFactory,
-          deps: [EducationAPISDKConfig]
         }
       })
     ],
-    providers: [EducationAPISDKConfig],
   }
 )
 

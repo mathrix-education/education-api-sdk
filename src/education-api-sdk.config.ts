@@ -4,5 +4,5 @@ import {Injectable} from '@angular/core';
 export class EducationAPISDKConfig {
   baseUrl: string;
   domains: string[];
-  authToken: string;
+  authTokenName: string;
 }
