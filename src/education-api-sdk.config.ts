@@ -1,7 +1,4 @@
-import {Injectable} from '@angular/core';
+import {InjectionToken} from '@angular/core';
 
-@Injectable()
-export class EducationAPISDKConfig {
-  baseUrl: string;
-  authTokenName: string;
-}
+export const BaseUrl = new InjectionToken<string>('baseUrl');
+export const AuthTokenName = new InjectionToken<string>('authTokenName');

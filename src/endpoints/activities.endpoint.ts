@@ -2,7 +2,7 @@ import {Endpoint} from '../lib/endpoints/endpoint';
 import {Activity} from '../models/activity';
 import {HttpClient} from '@angular/common/http';
 import {Inject, Injectable} from '@angular/core';
-import {EducationAPISDKConfig} from '../education-api-sdk.config';
+import {BaseUrl} from '../education-api-sdk.config';
 import {Module} from '../models/module';
 import {RelationListOptions} from '../lib/options/relation-list-options';
 import {ReadOptions} from '../lib/options/read-options';
@@ -17,8 +17,8 @@ import {Create} from '../lib/adapters/create';
   providedIn: 'root'
 })
 export class ActivitiesEndpoint extends Endpoint<Activity> {
-  constructor(http: HttpClient, config: EducationAPISDKConfig) {
-    super(http, config, 'activities');
+  constructor(http: HttpClient, @Inject(BaseUrl) base: string) {
+    super(http, base, 'activities');
   }
 
   /**

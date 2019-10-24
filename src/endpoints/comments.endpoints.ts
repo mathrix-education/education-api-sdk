@@ -1,15 +1,15 @@
 import {Endpoint} from '../lib/endpoints/endpoint';
 import {Comment} from '../models/comment';
 import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {CommentAdapter} from '../adapters/comment.adapter';
 import {Create} from '../lib/adapters/create';
-import {EducationAPISDKConfig} from '../education-api-sdk.config';
+import {BaseUrl} from '../education-api-sdk.config';
 
 @Injectable({providedIn: 'root'})
 export class CommentsEndpoint extends Endpoint<Comment> {
-  constructor(http: HttpClient, config: EducationAPISDKConfig) {
-    super(http, config, 'comments', new CommentAdapter());
+  constructor(http: HttpClient, @Inject(BaseUrl) base: string) {
+    super(http, base, 'comments', new CommentAdapter());
   }
 
   /**

@@ -14,21 +14,18 @@ import {DefaultAdapter} from '../adapters/default.adapter';
 import {DeleteOptions} from '../options/delete-options';
 import {RelationReorderOptions} from '../options/relation-reorder-options';
 import {Create} from '../adapters/create';
-import {EducationAPISDKConfig} from '../../education-api-sdk.config';
 
 /**
  * Base class to make API endpoints.
  */
 export abstract class Endpoint<T extends Model> {
-  protected base;
 
   protected constructor(
     protected http: HttpClient,
-    protected config: EducationAPISDKConfig,
+    protected base: string,
     protected endpoint: string = null,
     protected defaultAdapter: Adapter<T> = null,
   ) {
-    this.base = config.baseUrl;
     // Remove first slash if needed
     if (this.endpoint.charAt(0) === '/') {
       this.endpoint = this.endpoint.substr(1);

@@ -1,10 +1,7 @@
-import {InjectionToken, ModuleWithProviders, NgModule} from '@angular/core';
-import {EducationAPISDKConfig} from './education-api-sdk.config';
+import {ModuleWithProviders, NgModule} from '@angular/core';
+import {AuthTokenName, BaseUrl} from './education-api-sdk.config';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {TokenInterceptor} from './interceptors/bearer.interceptor';
-
-
-
 
 
 @NgModule({
@@ -13,7 +10,7 @@ import {TokenInterceptor} from './interceptors/bearer.interceptor';
 )
 
 export class EducationAPISDKModule {
-  static withConfig(config: new () => EducationAPISDKConfig): ModuleWithProviders {
+  static withConfig(config: { authTokenName: string, baseUrl: string }): ModuleWithProviders {
     return {
       ngModule: EducationAPISDKModule,
       providers: [
@@ -22,7 +19,8 @@ export class EducationAPISDKModule {
           useClass: TokenInterceptor,
           multi: true
         },
-        {provide: EducationAPISDKConfig, useClass: config}
+        {provide: BaseUrl, useValue: config.baseUrl},
+        {provide: AuthTokenName, useValue: config.authTokenName}
       ]
     };
   }

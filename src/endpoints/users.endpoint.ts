@@ -1,6 +1,6 @@
 import {Endpoint} from '../lib/endpoints/endpoint';
 import {User} from '../models/user';
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ListOptions} from '../lib/options/list-options';
 import {Card} from '../models/card';
@@ -8,7 +8,7 @@ import {Product} from '../models/product';
 import {Purchase} from '../models/purchase';
 import {Subscription} from '../models/subscription';
 import {Create} from '../lib/adapters/create';
-import {EducationAPISDKConfig} from '../education-api-sdk.config';
+import {BaseUrl} from '../education-api-sdk.config';
 
 /**
  * /users endpoint.
@@ -17,8 +17,8 @@ import {EducationAPISDKConfig} from '../education-api-sdk.config';
   providedIn: 'root'
 })
 export class UsersEndpoint extends Endpoint<User> {
-  constructor(http: HttpClient, config: EducationAPISDKConfig) {
-    super(http, config, 'users');
+  constructor(http: HttpClient, @Inject(BaseUrl) base: string) {
+    super(http, base, 'users');
   }
 
   /**
