@@ -6,6 +6,7 @@ import {DefaultAdapter} from '../lib/adapters/default.adapter';
 import {File as FileModel} from '../models/file';
 import {DataResponse} from '../lib/responses/data.response';
 import {Directory} from '../models/directory';
+import {EducationAPISDKConfig} from '../education-api-sdk.config';
 
 /**
  * /grades endpoint.
@@ -14,8 +15,8 @@ import {Directory} from '../models/directory';
   providedIn: 'root'
 })
 export class FilesEndpoint extends Endpoint<FileModel> {
-  constructor(http: HttpClient) {
-    super(http, 'files', new DefaultAdapter<Grade>());
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config, 'files', new DefaultAdapter<Grade>());
   }
 
   /**

@@ -1,9 +1,7 @@
-export class EducationAPISDKConfig {
-  static baseUrl: string;
-  static authToken: string;
+import {Injectable} from '@angular/core';
 
-  constructor(baseUrl, authToken) {
-    EducationAPISDKConfig.baseUrl = baseUrl;
-    EducationAPISDKConfig.authToken = authToken;
-  }
+@Injectable()
+export class EducationAPISDKConfig {
+  baseUrl: string;
+  authToken: string;
 }

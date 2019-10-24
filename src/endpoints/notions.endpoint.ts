@@ -3,10 +3,11 @@ import {Notion} from '../models/notion';
 import {HttpClient} from '@angular/common/http';
 import {DefaultAdapter} from '../lib/adapters/default.adapter';
 import {Chapter} from '../models/chapter';
+import {EducationAPISDKConfig} from '../education-api-sdk.config';
 
 export class NotionsEndpoint extends Endpoint<Notion> {
-  constructor(http: HttpClient) {
-    super(http, 'notions', new DefaultAdapter<Notion>());
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config, 'notions', new DefaultAdapter<Notion>());
   }
 
   /**

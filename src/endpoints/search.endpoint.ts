@@ -2,10 +2,11 @@ import {HttpClient} from '@angular/common/http';
 import {Search} from '../models/search';
 import {Endpoint} from '../lib/endpoints/endpoint';
 import {DataResponse} from '../lib/responses/data.response';
+import {EducationAPISDKConfig} from '../education-api-sdk.config';
 
 export class SearchEndpoint extends Endpoint<Search> {
-  constructor(http: HttpClient) {
-    super(http, 'search');
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config, 'search');
   }
 
   /**

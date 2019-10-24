@@ -1,10 +1,11 @@
 import {Endpoint} from '../lib/endpoints/endpoint';
 import {Module} from '../models/module';
 import {HttpClient} from '@angular/common/http';
+import {EducationAPISDKConfig} from '../education-api-sdk.config';
 
 export class ModulesEndpoint extends Endpoint<Module> {
-  constructor(http: HttpClient) {
-    super(http, 'modules');
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config, 'modules');
   }
 
   /**

@@ -147,15 +147,15 @@
                                         <tbody>
                                                 <tr>
                                                         <td>http</td>
-                                                  
+
                                                         <td>
                                                                         <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
                                                         </td>
-                                                  
+
                                                     <td>
                                                             No
                                                     </td>
-                                                    
+
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -168,7 +168,7 @@
 
 
             <section>
-    
+
     <h3 id="methods">
         Methods
     </h3>
@@ -243,7 +243,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -320,7 +320,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -439,7 +439,7 @@ List the notions.</p>
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -516,7 +516,7 @@ List the notions.</p>
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -609,7 +609,7 @@ List the notions.</p>
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -632,8 +632,8 @@ import {DefaultAdapter} from &#x27;../lib/adapters/default.adapter&#x27;;
 import {Chapter} from &#x27;../models/chapter&#x27;;
 
 export class NotionsEndpoint extends Endpoint&lt;Notion&gt; {
-  constructor(http: HttpClient) {
-    super(http, &#x27;notions&#x27;, new DefaultAdapter&lt;Notion&gt;());
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config,&#x27;notions&#x27;, new DefaultAdapter&lt;Notion&gt;());
   }
 
   /**
@@ -691,7 +691,7 @@ export class NotionsEndpoint extends Endpoint&lt;Notion&gt; {
 
 
 
-                   
+
 
 
 

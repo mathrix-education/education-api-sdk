@@ -144,15 +144,15 @@
                                         <tbody>
                                                 <tr>
                                                         <td>http</td>
-                                                  
+
                                                         <td>
                                                                         <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
                                                         </td>
-                                                  
+
                                                     <td>
                                                             No
                                                     </td>
-                                                    
+
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -165,7 +165,7 @@
 
 
             <section>
-    
+
     <h3 id="methods">
         Methods
     </h3>
@@ -240,7 +240,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -317,7 +317,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -436,7 +436,7 @@ List the chapters.</p>
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -545,7 +545,7 @@ List the chapters.</p>
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -569,8 +569,8 @@ import {UpdateOptions} from &#x27;../lib/options/update-options&#x27;;
 import {Create} from &#x27;../lib/adapters/create&#x27;;
 
 export class ChaptersEndpoint extends Endpoint&lt;Chapter&gt; {
-  constructor(http: HttpClient) {
-    super(http, &#x27;chapters&#x27;, new DefaultAdapter&lt;Chapter&gt;()
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config,&#x27;chapters&#x27;, new DefaultAdapter&lt;Chapter&gt;()
     );
   }
 
@@ -622,7 +622,7 @@ export class ChaptersEndpoint extends Endpoint&lt;Chapter&gt; {
 
 
 
-                   
+
 
 
 

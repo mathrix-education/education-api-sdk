@@ -153,15 +153,15 @@
                                         <tbody>
                                                 <tr>
                                                         <td>http</td>
-                                                  
+
                                                         <td>
                                                                         <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
                                                         </td>
-                                                  
+
                                                     <td>
                                                             No
                                                     </td>
-                                                    
+
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -174,7 +174,7 @@
 
 
             <section>
-    
+
     <h3 id="methods">
         Methods
     </h3>
@@ -249,7 +249,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -326,7 +326,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -445,7 +445,7 @@ List the modules.</p>
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -522,7 +522,7 @@ List the modules.</p>
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -599,7 +599,7 @@ List the modules.</p>
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -676,7 +676,7 @@ List the modules.</p>
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -769,7 +769,7 @@ List the modules.</p>
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -790,8 +790,8 @@ import {Module} from &#x27;../models/module&#x27;;
 import {HttpClient} from &#x27;@angular/common/http&#x27;;
 
 export class ModulesEndpoint extends Endpoint&lt;Module&gt; {
-  constructor(http: HttpClient) {
-    super(http, &#x27;modules&#x27;);
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config,&#x27;modules&#x27;);
   }
 
   /**
@@ -864,7 +864,7 @@ export class ModulesEndpoint extends Endpoint&lt;Module&gt; {
 
 
 
-                   
+
 
 
 

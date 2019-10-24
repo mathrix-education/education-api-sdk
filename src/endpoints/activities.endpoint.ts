@@ -17,8 +17,8 @@ import {Create} from '../lib/adapters/create';
   providedIn: 'root'
 })
 export class ActivitiesEndpoint extends Endpoint<Activity> {
-  constructor(http: HttpClient) {
-    super(http, 'activities');
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config, 'activities');
   }
 
   /**

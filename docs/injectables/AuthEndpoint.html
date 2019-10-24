@@ -143,15 +143,15 @@
                                         <tbody>
                                                 <tr>
                                                         <td>http</td>
-                                                  
+
                                                         <td>
                                                                         <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
                                                         </td>
-                                                  
+
                                                     <td>
                                                             No
                                                     </td>
-                                                    
+
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -163,7 +163,7 @@
 </section>
 
             <section>
-    
+
     <h3 id="methods">
         Methods
     </h3>
@@ -238,7 +238,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -315,7 +315,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -392,7 +392,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -485,7 +485,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -512,8 +512,8 @@ type TokenDataResponse &#x3D; DataResponse&lt;{ token: string }&gt;;
   providedIn: &#x27;root&#x27;
 })
 export class AuthEndpoint extends Endpoint&lt;any&gt; {
-  constructor(http: HttpClient) {
-    super(http, &#x27;auth&#x27;);
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config,&#x27;auth&#x27;);
   }
 
   /**
@@ -560,7 +560,7 @@ export class AuthEndpoint extends Endpoint&lt;any&gt; {
 
 
 
-                   
+
 
 
 

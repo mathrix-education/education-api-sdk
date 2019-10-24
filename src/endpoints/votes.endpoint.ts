@@ -3,10 +3,11 @@ import {HttpClient} from '@angular/common/http';
 import {Vote, VoteValue} from '../models/vote';
 import {Observable} from 'rxjs';
 import {DataResponse} from '../lib/responses/data.response';
+import {EducationAPISDKConfig} from '../education-api-sdk.config';
 
 export class VotesEndpoint extends Endpoint<Vote> {
-  constructor(http: HttpClient) {
-    super(http, 'votes');
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config, 'votes');
   }
 
   /**

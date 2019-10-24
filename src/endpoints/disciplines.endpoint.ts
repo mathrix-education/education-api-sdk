@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {DefaultAdapter} from '../lib/adapters/default.adapter';
 import {UpdateOptions} from '../lib/options/update-options';
 import {Create} from '../lib/adapters/create';
+import {EducationAPISDKConfig} from '../education-api-sdk.config';
 
 /**
  * /disciplines endpoint.
@@ -13,8 +14,8 @@ import {Create} from '../lib/adapters/create';
   providedIn: 'root'
 })
 export class DisciplinesEndpoint extends Endpoint<Discipline> {
-  constructor(http: HttpClient) {
-    super(http, 'disciplines', new DefaultAdapter<Discipline>());
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config, 'disciplines', new DefaultAdapter<Discipline>());
   }
 
   /**

@@ -7,6 +7,7 @@ import {UpdateOptions} from '../lib/options/update-options';
 import {Discipline} from '../models/discipline';
 import {Chapter} from '../models/chapter';
 import {DataResponse} from '../lib/responses/data.response';
+import {EducationAPISDKConfig} from '../education-api-sdk.config';
 
 /**
  * /grades endpoint.
@@ -15,8 +16,8 @@ import {DataResponse} from '../lib/responses/data.response';
   providedIn: 'root'
 })
 export class GradesEndpoint extends Endpoint<Grade> {
-  constructor(http: HttpClient) {
-    super(http, 'grades', new DefaultAdapter<Grade>()
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config, 'grades', new DefaultAdapter<Grade>()
     );
   }
 

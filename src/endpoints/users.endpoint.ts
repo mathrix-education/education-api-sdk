@@ -8,6 +8,7 @@ import {Product} from '../models/product';
 import {Purchase} from '../models/purchase';
 import {Subscription} from '../models/subscription';
 import {Create} from '../lib/adapters/create';
+import {EducationAPISDKConfig} from '../education-api-sdk.config';
 
 /**
  * /users endpoint.
@@ -16,8 +17,8 @@ import {Create} from '../lib/adapters/create';
   providedIn: 'root'
 })
 export class UsersEndpoint extends Endpoint<User> {
-  constructor(http: HttpClient) {
-    super(http, 'users');
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config, 'users');
   }
 
   /**

@@ -135,15 +135,15 @@
                                         <tbody>
                                                 <tr>
                                                         <td>http</td>
-                                                  
+
                                                         <td>
                                                                         <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
                                                         </td>
-                                                  
+
                                                     <td>
                                                             No
                                                     </td>
-                                                    
+
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -156,7 +156,7 @@
 
 
             <section>
-    
+
     <h3 id="methods">
         Methods
     </h3>
@@ -247,7 +247,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -324,7 +324,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -347,8 +347,8 @@ import {Observable} from &#x27;rxjs&#x27;;
 import {DataResponse} from &#x27;../lib/responses/data.response&#x27;;
 
 export class VotesEndpoint extends Endpoint&lt;Vote&gt; {
-  constructor(http: HttpClient) {
-    super(http, &#x27;votes&#x27;);
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config,&#x27;votes&#x27;);
   }
 
   /**
@@ -374,7 +374,7 @@ export class VotesEndpoint extends Endpoint&lt;Vote&gt; {
 
 
 
-                   
+
 
 
 

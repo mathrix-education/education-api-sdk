@@ -147,15 +147,15 @@
                                         <tbody>
                                                 <tr>
                                                         <td>http</td>
-                                                  
+
                                                         <td>
                                                                         <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
                                                         </td>
-                                                  
+
                                                     <td>
                                                             No
                                                     </td>
-                                                    
+
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -168,7 +168,7 @@
 
 
             <section>
-    
+
     <h3 id="methods">
         Methods
     </h3>
@@ -243,7 +243,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -320,7 +320,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -481,7 +481,7 @@ List the latest posts.</p>
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -574,7 +574,7 @@ List the latest posts.</p>
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -596,8 +596,8 @@ import {HttpClient} from &#x27;@angular/common/http&#x27;;
 import {Create} from &#x27;../lib/adapters/create&#x27;;
 
 export class PostsEndpoint extends Endpoint&lt;Post&gt; {
-  constructor(http: HttpClient) {
-    super(http, &#x27;posts&#x27;);
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config,&#x27;posts&#x27;);
   }
 
   /**
@@ -656,7 +656,7 @@ export class PostsEndpoint extends Endpoint&lt;Post&gt; {
 
 
 
-                   
+
 
 
 

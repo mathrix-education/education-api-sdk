@@ -3,10 +3,11 @@ import {HttpClient} from '@angular/common/http';
 import {Subscription} from '../models/subscription';
 import {Observable} from 'rxjs';
 import {DataResponse} from '../lib/responses/data.response';
+import {EducationAPISDKConfig} from '../education-api-sdk.config';
 
 export class SubscriptionsEndpoint extends Endpoint<Subscription> {
-  constructor(http: HttpClient) {
-    super(http, ' subscriptions');
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config, ' subscriptions');
   }
 
 

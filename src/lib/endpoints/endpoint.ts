@@ -20,13 +20,15 @@ import {EducationAPISDKConfig} from '../../education-api-sdk.config';
  * Base class to make API endpoints.
  */
 export abstract class Endpoint<T extends Model> {
-  protected base = EducationAPISDKConfig.baseUrl;
+  protected base;
 
   protected constructor(
     protected http: HttpClient,
+    protected config: EducationAPISDKConfig,
     protected endpoint: string = null,
     protected defaultAdapter: Adapter<T> = null,
   ) {
+    this.base = config.baseUrl;
     // Remove first slash if needed
     if (this.endpoint.charAt(0) === '/') {
       this.endpoint = this.endpoint.substr(1);

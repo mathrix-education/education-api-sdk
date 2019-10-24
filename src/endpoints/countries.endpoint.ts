@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Country} from '../models/country';
 import {ListOptions} from '../lib/options/list-options';
 import {Create} from '../lib/adapters/create';
+import {EducationAPISDKConfig} from '../education-api-sdk.config';
 
 /**
  * /countries endpoint.
@@ -12,8 +13,8 @@ import {Create} from '../lib/adapters/create';
   providedIn: 'root'
 })
 export class CountriesEndpoint extends Endpoint<Country> {
-  constructor(http: HttpClient) {
-    super(http, 'countries');
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config, 'countries');
   }
 
   /**

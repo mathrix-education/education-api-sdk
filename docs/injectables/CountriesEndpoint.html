@@ -146,15 +146,15 @@
                                         <tbody>
                                                 <tr>
                                                         <td>http</td>
-                                                  
+
                                                         <td>
                                                                         <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
                                                         </td>
-                                                  
+
                                                     <td>
                                                             No
                                                     </td>
-                                                    
+
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -166,7 +166,7 @@
 </section>
 
             <section>
-    
+
     <h3 id="methods">
         Methods
     </h3>
@@ -241,7 +241,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -318,7 +318,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -395,7 +395,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -472,7 +472,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -565,7 +565,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -591,8 +591,8 @@ import {Create} from &#x27;../lib/adapters/create&#x27;;
   providedIn: &#x27;root&#x27;
 })
 export class CountriesEndpoint extends Endpoint&lt;Country&gt; {
-  constructor(http: HttpClient) {
-    super(http, &#x27;countries&#x27;);
+  constructor(http: HttpClient, config: EducationAPISDKConfig) {
+    super(http, config,&#x27;countries&#x27;);
   }
 
   /**
@@ -647,7 +647,7 @@ export class CountriesEndpoint extends Endpoint&lt;Country&gt; {
 
 
 
-                   
+
 
 
 
