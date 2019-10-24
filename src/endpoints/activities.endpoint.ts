@@ -19,7 +19,7 @@ import {Create} from '../lib/adapters/create';
 })
 export class ActivitiesEndpoint extends Endpoint<Activity> {
   constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
-    super(http, config.baseUrl, '/activities');
+    super(http, config.baseUrl, 'activities');
   }
 
   /**

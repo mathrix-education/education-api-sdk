@@ -5,18 +5,11 @@ import {Inject} from '@angular/core';
 import {SDKConfig} from '../education-api-sdk.module';
 import {EducationAPISDKConfig} from '../education-api-sdk.config';
 import {DefaultAdapter} from '../lib/adapters/default.adapter';
-import {CreateOptions} from '../lib/options/create-options';
-import {UpdateOptions} from '../lib/options/update-options';
-import {Chapter} from "../models/chapter";
+import {Chapter} from '../models/chapter';
 
 export class NotionsEndpoint extends Endpoint<Notion> {
   constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
-    super(
-      http,
-      config.baseUrl,
-      'notions',
-      new DefaultAdapter<Notion>()
-    );
+    super(http, config.baseUrl, 'notions', new DefaultAdapter<Notion>());
   }
 
   /**
@@ -30,7 +23,6 @@ export class NotionsEndpoint extends Endpoint<Notion> {
   /**
    * POST /notions
    * @param notion The notion model.
-   * @param options The create notion request options.
    */
   create(notion: Notion) {
     return this.defaultCreate(notion);
