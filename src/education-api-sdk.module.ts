@@ -19,7 +19,7 @@ export function jwtOptionsFactory(config: EducationAPISDKConfig) {
         jwtOptionsProvider: {
           provide: JWT_OPTIONS,
           useFactory: jwtOptionsFactory,
-          deps: [EducationAPISDKModule]
+          deps: [EducationAPISDKConfig]
         }
       })
     ]
@@ -31,7 +31,7 @@ export class EducationAPISDKModule {
     return {
       ngModule: EducationAPISDKModule,
       providers: [
-        {provide: jwtOptionsFactory, useClass: config}
+        {provide: EducationAPISDKConfig, useClass: config}
       ]
     };
   }
