@@ -8,7 +8,8 @@ export function jwtOptionsFactory(config: EducationAPISDKConfig) {
     tokenGetter: () => {
       console.log('hehe', config.authToken);
       return localStorage.getItem(config.authToken);
-    }
+    },
+    domain: config.domains
   };
 }
 
@@ -22,7 +23,8 @@ export function jwtOptionsFactory(config: EducationAPISDKConfig) {
           deps: [EducationAPISDKConfig]
         }
       })
-    ]
+    ],
+    providers: [EducationAPISDKConfig],
   }
 )
 

@@ -3,5 +3,6 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class EducationAPISDKConfig {
   baseUrl: string;
+  domains: string[];
   authToken: string;
 }
