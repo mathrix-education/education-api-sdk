@@ -21,11 +21,11 @@ export function tokenGetter() {
   }
 )
 export class EducationAPISDKModule {
-  static withConfig(config: EducationAPISDKConfig): ModuleWithProviders {
+  static withConfig(config: new () => EducationAPISDKConfig): ModuleWithProviders {
     return {
       ngModule: EducationAPISDKModule,
       providers: [
-        {provide: EducationAPISDKConfig, useValue: config}
+        {provide: EducationAPISDKConfig, useClass: config}
       ]
     };
   }
