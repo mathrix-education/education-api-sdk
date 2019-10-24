@@ -6,6 +6,6 @@
   },
   "whitelistedNonPeerDependencies": [
     "ts-essentials",
-    "angular-jwt"
+    "@auth0/angular-jwt"
   ]
 }
