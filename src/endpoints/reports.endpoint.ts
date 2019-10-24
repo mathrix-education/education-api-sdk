@@ -1,14 +1,11 @@
 import {Endpoint} from '../lib/endpoints/endpoint';
 import {Report} from '../models/report';
 import {HttpClient} from '@angular/common/http';
-import {Inject} from '@angular/core';
-import {EducationAPISDKConfig} from '../education-api-sdk.config';
-import {SDKConfig} from '../education-api-sdk.module';
 import {Create} from '../lib/adapters/create';
 
 export class ReportsEndpoint extends Endpoint<Report> {
-  constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
-    super(http, config.baseUrl, 'reports');
+  constructor(http: HttpClient) {
+    super(http, 'reports');
   }
 
   /**

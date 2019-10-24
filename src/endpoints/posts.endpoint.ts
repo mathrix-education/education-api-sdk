@@ -1,14 +1,11 @@
 import {Endpoint} from '../lib/endpoints/endpoint';
 import {Post} from '../models/post';
 import {HttpClient} from '@angular/common/http';
-import {Inject} from '@angular/core';
-import {EducationAPISDKConfig} from '../education-api-sdk.config';
-import {SDKConfig} from '../education-api-sdk.module';
 import {Create} from '../lib/adapters/create';
 
 export class PostsEndpoint extends Endpoint<Post> {
-  constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
-    super(http, config.baseUrl, 'posts');
+  constructor(http: HttpClient) {
+    super(http, 'posts');
   }
 
   /**

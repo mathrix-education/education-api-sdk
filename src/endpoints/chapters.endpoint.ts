@@ -1,21 +1,13 @@
 import {Endpoint} from '../lib/endpoints/endpoint';
 import {Chapter} from '../models/chapter';
 import {HttpClient} from '@angular/common/http';
-import {Inject} from '@angular/core';
-import {SDKConfig} from '../education-api-sdk.module';
-import {EducationAPISDKConfig} from '../education-api-sdk.config';
 import {DefaultAdapter} from '../lib/adapters/default.adapter';
-import {CreateOptions} from '../lib/options/create-options';
 import {UpdateOptions} from '../lib/options/update-options';
 import {Create} from '../lib/adapters/create';
 
 export class ChaptersEndpoint extends Endpoint<Chapter> {
-  constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
-    super(
-      http,
-      config.baseUrl,
-      'chapters',
-      new DefaultAdapter<Chapter>()
+  constructor(http: HttpClient) {
+    super(http, 'chapters', new DefaultAdapter<Chapter>()
     );
   }
 

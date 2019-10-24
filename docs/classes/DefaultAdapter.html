@@ -68,7 +68,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>The default adapter.</p>
+                <p>The default defaultAdapter.</p>
 
             </p>
 
@@ -124,12 +124,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(modelConstructor, dates: string[])</code>
+<code>constructor(config: Partial<AdapterConfig>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/lib/adapters/default.adapter.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/lib/adapters/default.adapter.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -147,21 +147,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>modelConstructor</td>
+                                                        <td>config</td>
                                                   
                                                         <td>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>dates</td>
-                                                  
-                                                        <td>
-                                                                    <code>string[]</code>
+                                                                    <code>Partial&lt;AdapterConfig&gt;</code>
                                                         </td>
                                                   
                                                     <td>
@@ -199,15 +188,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>adapt(raw: Partial<T>)</code>
+<code>adapt(raw: LaxPartial<T>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/lib/adapters/default.adapter.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/lib/adapters/default.adapter.ts:24</a></div>
                 </td>
             </tr>
 
@@ -232,7 +221,7 @@
                                 <tr>
                                     <td>raw</td>
                                     <td>
-                                            <code>Partial&lt;T&gt;</code>
+                                            <code>LaxPartial&lt;T&gt;</code>
                                     </td>
 
                                     <td>
@@ -251,7 +240,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>T</code>
+                        <b>Returns : </b>    <code>LaxPartial&lt;T&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -276,15 +265,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>adaptMany(raw: (any | Partial<T>)[])</code>
+<code>adaptMany(raw: LaxPartial<T>[])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">src/lib/adapters/default.adapter.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/lib/adapters/default.adapter.ts:40</a></div>
                 </td>
             </tr>
 
@@ -309,7 +298,7 @@
                                 <tr>
                                     <td>raw</td>
                                     <td>
-                                            <code>(any | Partial&lt;T&gt;)[]</code>
+                                            <code>LaxPartial&lt;T&gt;[]</code>
                                     </td>
 
                                     <td>
@@ -328,7 +317,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>T[]</code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#LaxPartial" target="_self" >LaxPartial[]</a></code>
 
                     </div>
                     <div class="io-description">
@@ -353,15 +342,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>serialize(model: T)</code>
+<code>serialize(model: LaxPartial<T>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/lib/adapters/default.adapter.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/lib/adapters/default.adapter.ts:48</a></div>
                 </td>
             </tr>
 
@@ -386,7 +375,7 @@
                                 <tr>
                                     <td>model</td>
                                     <td>
-                                            <code>T</code>
+                                            <code>LaxPartial&lt;T&gt;</code>
                                     </td>
 
                                     <td>
@@ -405,7 +394,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Partial&lt;T&gt;</code>
+                        <b>Returns : </b>    <code>LaxPartial&lt;T&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -430,15 +419,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>serializeMany(models: T[])</code>
+<code>serializeMany(models: LaxPartial<T>[])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">src/lib/adapters/default.adapter.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/lib/adapters/default.adapter.ts:63</a></div>
                 </td>
             </tr>
 
@@ -463,7 +452,7 @@
                                 <tr>
                                     <td>models</td>
                                     <td>
-                                            <code>T[]</code>
+                                            <code>LaxPartial&lt;T&gt;[]</code>
                                     </td>
 
                                     <td>
@@ -482,7 +471,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>[]</code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#LaxPartial" target="_self" >LaxPartial[]</a></code>
 
                     </div>
                     <div class="io-description">
@@ -503,23 +492,30 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Adapter} from &#x27;./adapter&#x27;;
+import {LaxPartial} from &#x27;./lax-partial&#x27;;
+import {Writable} from &#x27;ts-essentials/dist/types&#x27;;
+
+export interface AdapterConfig {
+  dates: string[];
+}
 
 /**
- * The default adapter.
+ * The default defaultAdapter.
  */
 export class DefaultAdapter&lt;T&gt; implements Adapter&lt;T&gt; {
-  constructor(
-    private modelConstructor: new () &#x3D;&gt; T,
-    protected dates: string[] &#x3D; [&#x27;created_at&#x27;, &#x27;updated_at&#x27;]
-  ) {
+  protected dates: string[] &#x3D; [&#x27;created_at&#x27;, &#x27;updated_at&#x27;];
+
+
+  constructor(config: Partial&lt;AdapterConfig&gt; &#x3D; {}) {
+    Object.keys(config).forEach(key &#x3D;&gt; this[key] &#x3D; config[key]);
   }
 
   /**
    * Adapt a raw data to the model.
    * @param raw The raw data (from the API).
    */
-  adapt(raw: Partial&lt;T&gt;): T {
-    const model &#x3D; Object.assign(new this.modelConstructor(), raw);
+  adapt(raw: LaxPartial&lt;T&gt;): LaxPartial&lt;T&gt; {
+    const model &#x3D; Object.assign({}, raw);
 
     this.dates.forEach(date &#x3D;&gt; {
       if (date in model &amp;&amp; model[date] !&#x3D;&#x3D; null) {
@@ -534,7 +530,7 @@ export class DefaultAdapter&lt;T&gt; implements Adapter&lt;T&gt; {
    * Adapt an array of raw data to an array of models.
    * @param raw The raw data array (from the API).
    */
-  adaptMany(raw: (any | Partial&lt;T&gt;)[]): T[] {
+  adaptMany(raw: LaxPartial&lt;T&gt;[]): LaxPartial&lt;T&gt;[] {
     return raw.map(item &#x3D;&gt; this.adapt(item));
   }
 
@@ -542,7 +538,14 @@ export class DefaultAdapter&lt;T&gt; implements Adapter&lt;T&gt; {
    * Serialize a model to a valid API object.
    * @param model The model.
    */
-  serialize(model: T): Partial&lt;T&gt; {
+  serialize(model: LaxPartial&lt;T&gt;): LaxPartial&lt;T&gt; {
+    const raw &#x3D; Object.assign({}, model);
+
+    this.dates.forEach(date &#x3D;&gt; {
+      if (date in raw &amp;&amp; raw[date] !&#x3D;&#x3D; null) {
+        raw[date] &#x3D; raw[date].toISOString();
+      }
+    });
     return Object.assign({}, model);
   }
 
@@ -550,7 +553,7 @@ export class DefaultAdapter&lt;T&gt; implements Adapter&lt;T&gt; {
    * Serialize an array of models to a valid array of API objects.
    * @param models The array of models.
    */
-  serializeMany(models: T[]): (any | Partial&lt;T&gt;)[] {
+  serializeMany(models: LaxPartial&lt;T&gt;[]): LaxPartial&lt;T&gt;[] {
     return models.map(model &#x3D;&gt; this.serialize(model));
   }
 }

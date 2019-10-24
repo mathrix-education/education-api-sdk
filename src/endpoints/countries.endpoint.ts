@@ -1,8 +1,6 @@
-import {Inject, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Endpoint} from '../lib/endpoints/endpoint';
 import {HttpClient} from '@angular/common/http';
-import {SDKConfig} from '../education-api-sdk.module';
-import {EducationAPISDKConfig} from '../education-api-sdk.config';
 import {Country} from '../models/country';
 import {ListOptions} from '../lib/options/list-options';
 import {Create} from '../lib/adapters/create';
@@ -14,8 +12,8 @@ import {Create} from '../lib/adapters/create';
   providedIn: 'root'
 })
 export class CountriesEndpoint extends Endpoint<Country> {
-  constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
-    super(http, config.baseUrl, 'countries');
+  constructor(http: HttpClient) {
+    super(http, 'countries');
   }
 
   /**

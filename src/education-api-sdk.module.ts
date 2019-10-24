@@ -1,12 +1,22 @@
-import {InjectionToken, ModuleWithProviders, NgModule} from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import {EducationAPISDKConfig} from './education-api-sdk.config';
 import {HttpClientModule} from '@angular/common/http';
+import {JwtModule} from '@auth0/angular-jwt';
 
-export const SDKConfig = new InjectionToken<EducationAPISDKConfig>('APIBase url');
+
+export function tokenGetter() {
+  return localStorage.getItem(EducationAPISDKConfig.authToken);
+}
+
 
 @NgModule(
   {
-    imports: [HttpClientModule]
+    imports: [HttpClientModule,
+      JwtModule.forRoot({
+        config: {
+          tokenGetter
+        },
+      }),]
   }
 )
 export class EducationAPISDKModule {
@@ -14,7 +24,7 @@ export class EducationAPISDKModule {
     return {
       ngModule: EducationAPISDKModule,
       providers: [
-        {provide: SDKConfig, useValue: config}
+        {provide: EducationAPISDKConfig, useValue: config}
       ]
     };
   }

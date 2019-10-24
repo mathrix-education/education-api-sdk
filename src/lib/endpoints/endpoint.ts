@@ -14,14 +14,16 @@ import {DefaultAdapter} from '../adapters/default.adapter';
 import {DeleteOptions} from '../options/delete-options';
 import {RelationReorderOptions} from '../options/relation-reorder-options';
 import {Create} from '../adapters/create';
+import {EducationAPISDKConfig} from '../../education-api-sdk.config';
 
 /**
  * Base class to make API endpoints.
  */
 export abstract class Endpoint<T extends Model> {
+  protected base = EducationAPISDKConfig.baseUrl;
+
   protected constructor(
     protected http: HttpClient,
-    protected base: string,
     protected endpoint: string = null,
     protected defaultAdapter: Adapter<T> = null,
   ) {

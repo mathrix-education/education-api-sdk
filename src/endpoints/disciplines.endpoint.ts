@@ -1,11 +1,8 @@
-import {Inject, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Endpoint} from '../lib/endpoints/endpoint';
 import {Discipline} from '../models/discipline';
 import {HttpClient} from '@angular/common/http';
-import {SDKConfig} from '../education-api-sdk.module';
-import {EducationAPISDKConfig} from '../education-api-sdk.config';
 import {DefaultAdapter} from '../lib/adapters/default.adapter';
-import {CreateOptions} from '../lib/options/create-options';
 import {UpdateOptions} from '../lib/options/update-options';
 import {Create} from '../lib/adapters/create';
 
@@ -16,8 +13,8 @@ import {Create} from '../lib/adapters/create';
   providedIn: 'root'
 })
 export class DisciplinesEndpoint extends Endpoint<Discipline> {
-  constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
-    super(http, config.baseUrl, 'disciplines', new DefaultAdapter<Discipline>());
+  constructor(http: HttpClient) {
+    super(http, 'disciplines', new DefaultAdapter<Discipline>());
   }
 
   /**

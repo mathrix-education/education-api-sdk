@@ -88,15 +88,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>withConfig(config: <a href="../interfaces/EducationAPISDKConfig.html">EducationAPISDKConfig</a>)</code>
+                    <code>withConfig(config: <a href="../classes/EducationAPISDKConfig.html">EducationAPISDKConfig</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">src/education-api-sdk.module.ts:8</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/education-api-sdk.module.ts:23</a></div>
                 </td>
             </tr>
 
@@ -118,7 +118,7 @@
                                 <tr>
                                     <td>config</td>
                                     <td>
-                                                <code><a href="../interfaces/EducationAPISDKConfig.html" target="_self" >EducationAPISDKConfig</a></code>
+                                                <code><a href="../classes/EducationAPISDKConfig.html" target="_self" >EducationAPISDKConfig</a></code>
                                     </td>
 
                                     <td>
@@ -133,7 +133,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Module.html" target="_self" >ModuleWithProviders</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/Module.html" target="_self" >ModuleWithProviders</a></code>
 
                     </div>
                     <div class="io-description">
@@ -148,18 +148,33 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {InjectionToken, ModuleWithProviders, NgModule} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {ModuleWithProviders, NgModule} from &#x27;@angular/core&#x27;;
 import {EducationAPISDKConfig} from &#x27;./education-api-sdk.config&#x27;;
+import {HttpClientModule} from &#x27;@angular/common/http&#x27;;
+import {JwtModule} from &#x27;@auth0/angular-jwt&#x27;;
 
-export const SDKConfig &#x3D; new InjectionToken&lt;EducationAPISDKConfig&gt;(&#x27;APIBase url&#x27;);
 
-@NgModule()
+export function tokenGetter() {
+  return localStorage.getItem(EducationAPISDKConfig.authToken);
+}
+
+
+@NgModule(
+  {
+    imports: [HttpClientModule,
+      JwtModule.forRoot({
+        config: {
+          tokenGetter
+        },
+      }),]
+  }
+)
 export class EducationAPISDKModule {
   static withConfig(config: EducationAPISDKConfig): ModuleWithProviders {
     return {
       ngModule: EducationAPISDKModule,
       providers: [
-        {provide: SDKConfig, useValue: config}
+        {provide: EducationAPISDKConfig, useValue: config}
       ]
     };
   }

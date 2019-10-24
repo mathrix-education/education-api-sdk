@@ -151,7 +151,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>adapt(raw: Partial<T>)</code>
+<code>adapt(raw: LaxPartial<T>)</code>
                 </td>
             </tr>
 
@@ -164,7 +164,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../interfaces/Adapter.html#source" target="_self" >DefaultAdapter:17</a></code>
+                        <div class="io-line">Defined in         <code><a href="../interfaces/Adapter.html#source" target="_self" >DefaultAdapter:24</a></code>
 </div>
                 </td>
             </tr>
@@ -190,7 +190,7 @@
                                 <tr>
                                     <td>raw</td>
                                     <td>
-                                            <code>Partial&lt;T&gt;</code>
+                                            <code>LaxPartial&lt;T&gt;</code>
                                     </td>
 
                                     <td>
@@ -209,7 +209,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>T</code>
+                        <b>Returns : </b>    <code>LaxPartial&lt;T&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -234,7 +234,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>adaptMany(raw: (any | Partial<T>)[])</code>
+<code>adaptMany(raw: LaxPartial<T>[])</code>
                 </td>
             </tr>
 
@@ -247,7 +247,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../interfaces/Adapter.html#source" target="_self" >DefaultAdapter:33</a></code>
+                        <div class="io-line">Defined in         <code><a href="../interfaces/Adapter.html#source" target="_self" >DefaultAdapter:40</a></code>
 </div>
                 </td>
             </tr>
@@ -273,7 +273,7 @@
                                 <tr>
                                     <td>raw</td>
                                     <td>
-                                            <code>(any | Partial&lt;T&gt;)[]</code>
+                                            <code>LaxPartial&lt;T&gt;[]</code>
                                     </td>
 
                                     <td>
@@ -292,7 +292,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>T[]</code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#LaxPartial" target="_self" >LaxPartial[]</a></code>
 
                     </div>
                     <div class="io-description">
@@ -317,7 +317,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>serialize(model: T)</code>
+<code>serialize(model: LaxPartial<T>)</code>
                 </td>
             </tr>
 
@@ -330,7 +330,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../interfaces/Adapter.html#source" target="_self" >DefaultAdapter:41</a></code>
+                        <div class="io-line">Defined in         <code><a href="../interfaces/Adapter.html#source" target="_self" >DefaultAdapter:48</a></code>
 </div>
                 </td>
             </tr>
@@ -356,7 +356,7 @@
                                 <tr>
                                     <td>model</td>
                                     <td>
-                                            <code>T</code>
+                                            <code>LaxPartial&lt;T&gt;</code>
                                     </td>
 
                                     <td>
@@ -375,7 +375,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Partial&lt;T&gt;</code>
+                        <b>Returns : </b>    <code>LaxPartial&lt;T&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -400,7 +400,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>serializeMany(models: T[])</code>
+<code>serializeMany(models: LaxPartial<T>[])</code>
                 </td>
             </tr>
 
@@ -413,7 +413,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../interfaces/Adapter.html#source" target="_self" >DefaultAdapter:49</a></code>
+                        <div class="io-line">Defined in         <code><a href="../interfaces/Adapter.html#source" target="_self" >DefaultAdapter:63</a></code>
 </div>
                 </td>
             </tr>
@@ -439,7 +439,7 @@
                                 <tr>
                                     <td>models</td>
                                     <td>
-                                            <code>T[]</code>
+                                            <code>LaxPartial&lt;T&gt;[]</code>
                                     </td>
 
                                     <td>
@@ -458,7 +458,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>[]</code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#LaxPartial" target="_self" >LaxPartial[]</a></code>
 
                     </div>
                     <div class="io-description">
@@ -483,7 +483,9 @@ import {DefaultAdapter} from &#x27;../lib/adapters/default.adapter&#x27;;
 
 export class CommentAdapter extends DefaultAdapter&lt;Comment&gt; {
   constructor() {
-    super(Comment, [&#x27;created_at&#x27;, &#x27;updated_at&#x27;, &#x27;delete_at&#x27;]);
+    super({
+      dates: [&#x27;created_at&#x27;, &#x27;updated_at&#x27;, &#x27;deleted_at&#x27;]
+    });
   }
 }
 </code></pre>

@@ -2,9 +2,7 @@ import {Endpoint} from '../lib/endpoints/endpoint';
 import {HttpClient} from '@angular/common/http';
 import {DataResponse} from '../lib/responses/data.response';
 import {MessageResponse} from '../lib/responses/message.response';
-import {Inject, Injectable} from '@angular/core';
-import {SDKConfig} from '../education-api-sdk.module';
-import {EducationAPISDKConfig} from '../education-api-sdk.config';
+import {Injectable} from '@angular/core';
 
 type TokenDataResponse = DataResponse<{ token: string }>;
 
@@ -15,8 +13,8 @@ type TokenDataResponse = DataResponse<{ token: string }>;
   providedIn: 'root'
 })
 export class AuthEndpoint extends Endpoint<any> {
-  constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
-    super(http, config.baseUrl, 'auth');
+  constructor(http: HttpClient) {
+    super(http, 'auth');
   }
 
   /**

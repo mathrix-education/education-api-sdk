@@ -1,15 +1,12 @@
 import {Endpoint} from '../lib/endpoints/endpoint';
 import {Notion} from '../models/notion';
 import {HttpClient} from '@angular/common/http';
-import {Inject} from '@angular/core';
-import {SDKConfig} from '../education-api-sdk.module';
-import {EducationAPISDKConfig} from '../education-api-sdk.config';
 import {DefaultAdapter} from '../lib/adapters/default.adapter';
 import {Chapter} from '../models/chapter';
 
 export class NotionsEndpoint extends Endpoint<Notion> {
-  constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
-    super(http, config.baseUrl, 'notions', new DefaultAdapter<Notion>());
+  constructor(http: HttpClient) {
+    super(http, 'notions', new DefaultAdapter<Notion>());
   }
 
   /**

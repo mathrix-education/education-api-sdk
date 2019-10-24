@@ -118,77 +118,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>adapt(raw: any | Partial<T>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="2"
-                            class="link-to-prism">src/lib/adapters/adapter.ts:2</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>raw</td>
-                                    <td>
-                                            <code>any | Partial&lt;T&gt;</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>T</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="adaptMany"></a>
-                    <span class="name">
-                        <b>
-                            adaptMany
-                        </b>
-                        <a href="#adaptMany"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>adaptMany(raw: (any | Partial<T>)[])</code>
+<code>adapt(raw: LaxPartial<T>)</code>
                 </td>
             </tr>
 
@@ -218,7 +148,7 @@
                                 <tr>
                                     <td>raw</td>
                                     <td>
-                                            <code>(any | Partial&lt;T&gt;)[]</code>
+                                            <code>LaxPartial&lt;T&gt;</code>
                                     </td>
 
                                     <td>
@@ -233,7 +163,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>T[]</code>
+                        <b>Returns : </b>    <code>LaxPartial&lt;T&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -247,18 +177,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="serialize"></a>
+                    <a name="adaptMany"></a>
                     <span class="name">
                         <b>
-                            serialize
+                            adaptMany
                         </b>
-                        <a href="#serialize"><span class="icon ion-ios-link"></span></a>
+                        <a href="#adaptMany"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>serialize(model: T)</code>
+<code>adaptMany(raw: LaxPartial<T>[])</code>
                 </td>
             </tr>
 
@@ -286,9 +216,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>model</td>
+                                    <td>raw</td>
                                     <td>
-                                            <code>T</code>
+                                            <code>LaxPartial&lt;T&gt;[]</code>
                                     </td>
 
                                     <td>
@@ -303,7 +233,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>any | Partial</code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#LaxPartial" target="_self" >LaxPartial[]</a></code>
 
                     </div>
                     <div class="io-description">
@@ -317,18 +247,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="serializeMany"></a>
+                    <a name="serialize"></a>
                     <span class="name">
                         <b>
-                            serializeMany
+                            serialize
                         </b>
-                        <a href="#serializeMany"><span class="icon ion-ios-link"></span></a>
+                        <a href="#serialize"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>serializeMany(models: T[])</code>
+<code>serialize(model: LaxPartial<T>)</code>
                 </td>
             </tr>
 
@@ -356,9 +286,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>models</td>
+                                    <td>model</td>
                                     <td>
-                                            <code>T[]</code>
+                                            <code>LaxPartial&lt;T&gt;</code>
                                     </td>
 
                                     <td>
@@ -373,7 +303,77 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>[]</code>
+                        <b>Returns : </b>    <code>LaxPartial&lt;T&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="serializeMany"></a>
+                    <span class="name">
+                        <b>
+                            serializeMany
+                        </b>
+                        <a href="#serializeMany"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>serializeMany(models: LaxPartial<T>[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">src/lib/adapters/adapter.ts:10</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>models</td>
+                                    <td>
+                                            <code>LaxPartial&lt;T&gt;[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#LaxPartial" target="_self" >LaxPartial[]</a></code>
 
                     </div>
                     <div class="io-description">
@@ -389,14 +389,16 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Adapter&lt;T&gt; {
-  adapt(raw: any | Partial&lt;T&gt;): T;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {LaxPartial} from &#x27;./lax-partial&#x27;;
 
-  adaptMany(raw: (any | Partial&lt;T&gt;)[]): T[];
+export interface Adapter&lt;T&gt; {
+  adapt(raw: LaxPartial&lt;T&gt;): LaxPartial&lt;T&gt;;
 
-  serialize(model: T): any | Partial&lt;T&gt;;
+  adaptMany(raw: LaxPartial&lt;T&gt;[]): LaxPartial&lt;T&gt;[];
 
-  serializeMany(models: T[]): (any | Partial&lt;T&gt;)[];
+  serialize(model: LaxPartial&lt;T&gt;): LaxPartial&lt;T&gt;;
+
+  serializeMany(models: LaxPartial&lt;T&gt;[]): LaxPartial&lt;T&gt;[];
 }
 </code></pre>
     </div>

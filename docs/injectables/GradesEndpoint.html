@@ -90,7 +90,40 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#bySlug">bySlug</a>
+                            </li>
+                            <li>
+                                <a href="#chapterBySlug">chapterBySlug</a>
+                            </li>
+                            <li>
+                                <a href="#create">create</a>
+                            </li>
+                            <li>
+                                <a href="#delete">delete</a>
+                            </li>
+                            <li>
                                 <a href="#list">list</a>
+                            </li>
+                            <li>
+                                <a href="#listChapters">listChapters</a>
+                            </li>
+                            <li>
+                                <a href="#listChaptersBySlug">listChaptersBySlug</a>
+                            </li>
+                            <li>
+                                <a href="#listChaptersVisible">listChaptersVisible</a>
+                            </li>
+                            <li>
+                                <a href="#listDisciplines">listDisciplines</a>
+                            </li>
+                            <li>
+                                <a href="#listDisciplinesVisible">listDisciplinesVisible</a>
+                            </li>
+                            <li>
+                                <a href="#read">read</a>
+                            </li>
+                            <li>
+                                <a href="#update">update</a>
                             </li>
                         </ul>
                     </td>
@@ -110,12 +143,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, config: <a href="../interfaces/EducationAPISDKConfig.html">EducationAPISDKConfig</a>)</code>
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/endpoints/grades.endpoint.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/endpoints/grades.endpoint.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -144,18 +177,6 @@
                                                     </td>
                                                     
                                                 </tr>
-                                                <tr>
-                                                        <td>config</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../interfaces/EducationAPISDKConfig.html" target="_self" >EducationAPISDKConfig</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -170,6 +191,330 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bySlug"></a>
+                    <span class="name">
+                        <b>
+                            bySlug
+                        </b>
+                        <a href="#bySlug"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>bySlug(slug: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/endpoints/grades.endpoint.ts:69</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>GET /grades/slug/${gradeSlug}</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>slug</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>: The grade slug.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chapterBySlug"></a>
+                    <span class="name">
+                        <b>
+                            chapterBySlug
+                        </b>
+                        <a href="#chapterBySlug"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>chapterBySlug(gradeSlug: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, chapterSlug: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">src/endpoints/grades.endpoint.ts:78</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>GET /grades/slug/{gradeSlug}/chapters/slug/{chapterSlug}</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>gradeSlug</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The grade slug.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>chapterSlug</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The chapter slug.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                        <b>
+                            create
+                        </b>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>create(grade: <a href="../interfaces/Grade.html">Grade</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/endpoints/grades.endpoint.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>POST /grades</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>grade</td>
+                                    <td>
+                                                <code><a href="../interfaces/Grade.html" target="_self" >Grade</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The grade model.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="delete"></a>
+                    <span class="name">
+                        <b>
+                            delete
+                        </b>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>delete(gradeId: <a href="../Ts/u.html">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">src/endpoints/grades.endpoint.ts:61</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>DELETE /grades/gradeId</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>gradeId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/variables.html#u" target="_self" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The grade id.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -192,8 +537,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/endpoints/grades.endpoint.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/endpoints/grades.endpoint.ts:27</a></div>
                 </td>
             </tr>
 
@@ -212,6 +557,625 @@ List the grades.</p>
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listChapters"></a>
+                    <span class="name">
+                        <b>
+                            listChapters
+                        </b>
+                        <a href="#listChapters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>listChapters(gradeId: <a href="../Ts/u.html">number</a>, chapterId: <a href="../Ts/u.html">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="115"
+                            class="link-to-prism">src/endpoints/grades.endpoint.ts:115</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>GET /grades/{gradeId}/chapters/visible</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>gradeId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/variables.html#u" target="_self" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The grade id.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>chapterId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/variables.html#u" target="_self" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The chapter id.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listChaptersBySlug"></a>
+                    <span class="name">
+                        <b>
+                            listChaptersBySlug
+                        </b>
+                        <a href="#listChaptersBySlug"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>listChaptersBySlug(gradeSlug: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, chapterSlug: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="131"
+                            class="link-to-prism">src/endpoints/grades.endpoint.ts:131</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>GET /grades/slug/{gradeSlug}/chapters/slug/{chapterSlug}</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>gradeSlug</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The grade slug.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>chapterSlug</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The chapter slug.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listChaptersVisible"></a>
+                    <span class="name">
+                        <b>
+                            listChaptersVisible
+                        </b>
+                        <a href="#listChaptersVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>listChaptersVisible(gradeId: <a href="../Ts/u.html">number</a>, chapterId: <a href="../Ts/u.html">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="140"
+                            class="link-to-prism">src/endpoints/grades.endpoint.ts:140</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>GET /grades/{gradeId}/disciplines</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>gradeId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/variables.html#u" target="_self" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The grade id.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>chapterId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/variables.html#u" target="_self" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The chapter id.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listDisciplines"></a>
+                    <span class="name">
+                        <b>
+                            listDisciplines
+                        </b>
+                        <a href="#listDisciplines"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>listDisciplines(gradeId: <a href="../Ts/u.html">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">src/endpoints/grades.endpoint.ts:86</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>GET /grades/{gradeId}/disciplines</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>gradeId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/variables.html#u" target="_self" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The grade id.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listDisciplinesVisible"></a>
+                    <span class="name">
+                        <b>
+                            listDisciplinesVisible
+                        </b>
+                        <a href="#listDisciplinesVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>listDisciplinesVisible(gradeId: <a href="../Ts/u.html">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">src/endpoints/grades.endpoint.ts:100</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>GET /grades/{gradeId}/disciplines/visible</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>gradeId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/variables.html#u" target="_self" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The grade id.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <b>
+                            read
+                        </b>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read(gradeId: <a href="../Ts/u.html">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/endpoints/grades.endpoint.ts:43</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>GET /grades/{gradeId}</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>gradeId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/variables.html#u" target="_self" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The grade id.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                        <b>
+                            update
+                        </b>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>update(gradeId: <a href="../Ts/u.html">number</a>, grade: <a href="../interfaces/Grade.html">Grade</a>, options: <a href="../interfaces/Grade.html">UpdateOptions<Grade></a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/endpoints/grades.endpoint.ts:53</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>PATCH /grades/{gradeId}</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>gradeId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/variables.html#u" target="_self" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The grade id.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>grade</td>
+                                    <td>
+                                                <code><a href="../interfaces/Grade.html" target="_self" >Grade</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The grade model.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../interfaces/Grade.html" target="_self" >UpdateOptions&lt;Grade&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The update grade request options.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -221,10 +1185,12 @@ List the grades.</p>
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Endpoint} from &#x27;../lib/endpoints/endpoint&#x27;;
 import {Grade} from &#x27;../models/grade&#x27;;
 import {HttpClient} from &#x27;@angular/common/http&#x27;;
-import {Inject, Injectable} from &#x27;@angular/core&#x27;;
-import {SDKConfig} from &#x27;../education-api-sdk.module&#x27;;
-import {EducationAPISDKConfig} from &#x27;../education-api-sdk.config&#x27;;
+import {Injectable} from &#x27;@angular/core&#x27;;
 import {DefaultAdapter} from &#x27;../lib/adapters/default.adapter&#x27;;
+import {UpdateOptions} from &#x27;../lib/options/update-options&#x27;;
+import {Discipline} from &#x27;../models/discipline&#x27;;
+import {Chapter} from &#x27;../models/chapter&#x27;;
+import {DataResponse} from &#x27;../lib/responses/data.response&#x27;;
 
 /**
  * /grades endpoint.
@@ -233,12 +1199,8 @@ import {DefaultAdapter} from &#x27;../lib/adapters/default.adapter&#x27;;
   providedIn: &#x27;root&#x27;
 })
 export class GradesEndpoint extends Endpoint&lt;Grade&gt; {
-  constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
-    super(
-      http,
-      config.baseUrl,
-      &#x27;grades&#x27;,
-      new DefaultAdapter(Grade)
+  constructor(http: HttpClient) {
+    super(http, &#x27;grades&#x27;, new DefaultAdapter&lt;Grade&gt;()
     );
   }
 
@@ -247,7 +1209,127 @@ export class GradesEndpoint extends Endpoint&lt;Grade&gt; {
    * List the grades.
    */
   list() {
-    return this.defaultSearch();
+    return this.defaultList();
+  }
+
+  /**
+   * POST /grades
+   * @param grade The grade model.
+   */
+  create(grade: Grade) {
+    return this.defaultCreate(grade);
+  }
+
+  /**
+   * GET /grades/{gradeId}
+   * @param gradeId The grade id.
+   */
+  read(gradeId: number) {
+    return this.defaultRead(gradeId);
+  }
+
+  /**
+   * PATCH /grades/{gradeId}
+   * @param gradeId The grade id.
+   * @param grade The grade model.
+   * @param options The update grade request options.
+   */
+  update(gradeId: number, grade: Grade, options: UpdateOptions&lt;Grade&gt;) {
+    return this.defaultUpdate(gradeId, grade, options);
+  }
+
+  /**
+   * DELETE /grades/gradeId
+   * @param gradeId The grade id.
+   */
+  delete(gradeId: number) {
+    return this.defaultDelete(gradeId);
+  }
+
+  /**
+   * GET /grades/slug/${gradeSlug}
+   * @param slug: The grade slug.
+   */
+  bySlug(slug: string) {
+    return this.defaultList({filters: [[&#x27;slug&#x27;, &#x27;&#x3D;&#x27;, slug]]});
+  }
+
+  /**
+   * GET /grades/slug/{gradeSlug}/chapters/slug/{chapterSlug}
+   * @param gradeSlug The grade slug.
+   * @param chapterSlug The chapter slug.
+   */
+  chapterBySlug(gradeSlug: string, chapterSlug: string) {
+    return this.http.get&lt;DataResponse&lt;Chapter&gt;&gt;(&#x60;${this.url}/slug/${gradeSlug}/chapters/slug/${chapterSlug}&#x60;);
+  }
+
+  /**
+   * GET /grades/{gradeId}/disciplines
+   * @param gradeId The grade id.
+   */
+  listDisciplines(gradeId: number) {
+    return this.defaultRelationList&lt;Discipline&gt;(gradeId, &#x27;disciplines&#x27;,
+      {
+        filters: [
+          [&#x27;visible&#x27;, &#x27;&#x3D;&#x27;, false]
+        ]
+      }
+    );
+  }
+
+  /**
+   * GET /grades/{gradeId}/disciplines/visible
+   * @param gradeId The grade id.
+   */
+  listDisciplinesVisible(gradeId: number) {
+    return this.defaultRelationList&lt;Discipline&gt;(gradeId, &#x27;disciplines&#x27;,
+      {
+        filters: [
+          [&#x27;visible&#x27;, &#x27;&#x3D;&#x27;, true]
+        ]
+      }
+    );
+  }
+
+  /**
+   * GET /grades/{gradeId}/chapters/visible
+   * @param gradeId The grade id.
+   * @param chapterId The chapter id.
+   */
+  listChapters(gradeId: number, chapterId: number) {
+    return this.defaultRelationList&lt;Chapter&gt;(gradeId, &#x27;disciplines&#x27;,
+      {
+        filters: [
+          [&#x27;id&#x27;, &#x27;&#x3D;&#x27;, chapterId],
+          [&#x27;visible&#x27;, &#x27;&#x3D;&#x27;, true]
+        ]
+      }
+    );
+  }
+
+  /**
+   * GET /grades/slug/{gradeSlug}/chapters/slug/{chapterSlug}
+   * @param gradeSlug The grade slug.
+   * @param chapterSlug The chapter slug.
+   */
+  listChaptersBySlug(gradeSlug: string, chapterSlug: string) {
+    return this.http.get&lt;DataResponse&lt;Chapter&gt;&gt;(&#x60;${this.url}/grades/slug/${gradeSlug}/chapters/${chapterSlug}&#x60;);
+  }
+
+  /**
+   * GET /grades/{gradeId}/disciplines
+   * @param gradeId The grade id.
+   * @param chapterId The chapter id.
+   */
+  listChaptersVisible(gradeId: number, chapterId: number) {
+    return this.defaultRelationList&lt;Chapter&gt;(gradeId, &#x27;disciplines&#x27;,
+      {
+        filters: [
+          [&#x27;id&#x27;, &#x27;&#x3D;&#x27;, chapterId],
+          [&#x27;visible&#x27;, &#x27;&#x3D;&#x27;, true]
+        ]
+      }
+    );
   }
 }
 </code></pre>

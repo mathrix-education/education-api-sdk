@@ -1,14 +1,10 @@
 import {Endpoint} from '../lib/endpoints/endpoint';
 import {Module} from '../models/module';
 import {HttpClient} from '@angular/common/http';
-import {Inject} from '@angular/core';
-import {SDKConfig} from '../education-api-sdk.module';
-import {EducationAPISDKConfig} from '../education-api-sdk.config';
-import {CreateOptions} from '../lib/options/create-options';
 
 export class ModulesEndpoint extends Endpoint<Module> {
-  constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
-    super(http, config.baseUrl, 'modules');
+  constructor(http: HttpClient) {
+    super(http, 'modules');
   }
 
   /**
@@ -22,7 +18,6 @@ export class ModulesEndpoint extends Endpoint<Module> {
   /**
    * POST /modules
    * @param module The module model.
-   * @param options The create module request options.
    */
   create(module: Module) {
     return this.defaultCreate(module);

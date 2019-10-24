@@ -1,3 +1,4 @@
-export interface EducationAPISDKConfig {
-  baseUrl: string;
+export class EducationAPISDKConfig {
+  static baseUrl: string;
+  static authToken: string;
 }

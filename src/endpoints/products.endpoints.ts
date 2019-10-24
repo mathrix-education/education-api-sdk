@@ -1,15 +1,11 @@
 import {Endpoint} from '../lib/endpoints/endpoint';
 import {Product} from '../models/product';
 import {HttpClient} from '@angular/common/http';
-import {Inject} from '@angular/core';
-import {SDKConfig} from '../education-api-sdk.module';
-import {EducationAPISDKConfig} from '../education-api-sdk.config';
-import {CreateOptions} from '../lib/options/create-options';
 import {Create} from '../lib/adapters/create';
 
 export class ProductsEndpoint extends Endpoint<Product> {
-  constructor(http: HttpClient, @Inject(SDKConfig) config: EducationAPISDKConfig) {
-    super(http, config.baseUrl, 'products');
+  constructor(http: HttpClient) {
+    super(http, 'products');
   }
 
   /**
