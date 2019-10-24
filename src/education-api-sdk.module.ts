@@ -1,32 +1,37 @@
-import {Inject, Injector, ModuleWithProviders, NgModule, PLATFORM_ID} from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import {EducationAPISDKConfig} from './education-api-sdk.config';
 import {HttpClientModule} from '@angular/common/http';
-import {JwtModule} from '@auth0/angular-jwt';
+import {JWT_OPTIONS, JwtModule} from '@auth0/angular-jwt';
 
-
-export function tokenGetter() {
-  return localStorage.getItem('rrr');
+export function jwtOptionsFactory(config: EducationAPISDKConfig) {
+  return {
+    tokenGetter: () => {
+      console.log('hehe', config.authToken);
+      return localStorage.getItem(config.authToken);
+    }
+  };
 }
 
 
-@NgModule(
-  {
+@NgModule({
     imports: [HttpClientModule,
       JwtModule.forRoot({
-        config: {
-          tokenGetter,
-          whitelistedDomains: ['api.mathrix.fr', 'dev.api.mathrix.fr'],
-        },
+        jwtOptionsProvider: {
+          provide: JWT_OPTIONS,
+          useFactory: jwtOptionsFactory,
+          deps: [EducationAPISDKModule]
+        }
       })
     ]
   }
 )
+
 export class EducationAPISDKModule {
   static withConfig(config: new () => EducationAPISDKConfig): ModuleWithProviders {
     return {
       ngModule: EducationAPISDKModule,
       providers: [
-        {provide: EducationAPISDKConfig, useClass: config}
+        {provide: jwtOptionsFactory, useClass: config}
       ]
     };
   }
