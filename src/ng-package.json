@@ -5,7 +5,6 @@
     "entryFile": "public-api.ts"
   },
   "whitelistedNonPeerDependencies": [
-    "ts-essentials",
-    "@auth0/angular-jwt"
+    "ts-essentials"
   ]
 }

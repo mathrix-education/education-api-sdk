@@ -1,27 +1,14 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
+import {InjectionToken, ModuleWithProviders, NgModule} from '@angular/core';
 import {EducationAPISDKConfig} from './education-api-sdk.config';
-import {HttpClientModule} from '@angular/common/http';
-import {JWT_OPTIONS, JwtModule} from '@auth0/angular-jwt';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {TokenInterceptor} from './interceptors/bearer.interceptor';
 
-export function jwtOptionsFactory() {
-  return {
-    tokenGetter: () => {
-      return localStorage.getItem('rrr');
-    },
-    whitelistedDomains: ['dev.api.mathrix.fr']
-  };
-}
+
+
 
 
 @NgModule({
-    imports: [HttpClientModule,
-      JwtModule.forRoot({
-        jwtOptionsProvider: {
-          provide: JWT_OPTIONS,
-          useFactory: jwtOptionsFactory,
-        }
-      })
-    ],
+    imports: [HttpClientModule],
   }
 )
 
@@ -30,6 +17,11 @@ export class EducationAPISDKModule {
     return {
       ngModule: EducationAPISDKModule,
       providers: [
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: TokenInterceptor,
+          multi: true
+        },
         {provide: EducationAPISDKConfig, useClass: config}
       ]
     };

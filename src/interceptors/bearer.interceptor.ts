@@ -1,0 +1,22 @@
+import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {EducationAPISDKConfig} from '../education-api-sdk.config';
+
+@Injectable()
+export class TokenInterceptor implements HttpInterceptor {
+
+  constructor(private config: EducationAPISDKConfig, @Inject(PLATFORM_ID) platformId) {
+  }
+
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+    request = request.clone({
+      setHeaders: {
+        Authorization: `Bearer ${localStorage.getItem(this.config.authTokenName)}`
+      }
+    });
+
+    return next.handle(request);
+  }
+}
