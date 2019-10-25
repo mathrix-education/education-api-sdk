@@ -12,7 +12,7 @@ export class TokenInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     const token = localStorage.getItem(this.authTokenName);
-    console.log('TK', token, this.authTokenName);
+
     if (!token) {
       return next.handle(request);
     }
