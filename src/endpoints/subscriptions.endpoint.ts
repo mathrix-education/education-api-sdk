@@ -4,8 +4,14 @@ import {Subscription} from '../models/subscription';
 import {Observable} from 'rxjs';
 import {DataResponse} from '../lib/responses/data.response';
 import {BaseUrl} from '../education-api-sdk.config';
-import {Inject} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 
+/**
+ * /subscriptions endpoints.
+ */
+@Injectable({
+  providedIn: 'root'
+})
 export class SubscriptionsEndpoint extends Endpoint<Subscription> {
   constructor(http: HttpClient, @Inject(BaseUrl) base: string) {
     super(http, base, ' subscriptions');

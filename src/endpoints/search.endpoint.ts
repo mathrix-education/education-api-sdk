@@ -3,8 +3,14 @@ import {Search} from '../models/search';
 import {Endpoint} from '../lib/endpoints/endpoint';
 import {DataResponse} from '../lib/responses/data.response';
 import {BaseUrl} from '../education-api-sdk.config';
-import {Inject} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 
+/**
+ * /search endpoints.
+ */
+@Injectable({
+  providedIn: 'root'
+})
 export class SearchEndpoint extends Endpoint<Search> {
   constructor(http: HttpClient, @Inject(BaseUrl) base: string) {
     super(http, base, 'search');

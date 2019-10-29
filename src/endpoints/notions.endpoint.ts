@@ -4,8 +4,14 @@ import {HttpClient} from '@angular/common/http';
 import {DefaultAdapter} from '../lib/adapters/default.adapter';
 import {Chapter} from '../models/chapter';
 import {BaseUrl} from '../education-api-sdk.config';
-import {Inject} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 
+/**
+ * /notions endpoints.
+ */
+@Injectable({
+  providedIn: 'root'
+})
 export class NotionsEndpoint extends Endpoint<Notion> {
   constructor(http: HttpClient, @Inject(BaseUrl) base: string) {
     super(http, base, 'notions', new DefaultAdapter<Notion>());

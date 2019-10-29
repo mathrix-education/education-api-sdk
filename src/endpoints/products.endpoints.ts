@@ -3,9 +3,14 @@ import {Product} from '../models/product';
 import {HttpClient} from '@angular/common/http';
 import {Create} from '../lib/adapters/create';
 import {BaseUrl} from '../education-api-sdk.config';
-import {Inject} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 
-export class ProductsEndpoint extends Endpoint<Product> {
+/**
+ * /products endpoints.
+ */
+@Injectable({
+  providedIn: 'root'
+})export class ProductsEndpoint extends Endpoint<Product> {
   constructor(http: HttpClient, @Inject(BaseUrl) base: string) {
     super(http, base, 'products');
   }

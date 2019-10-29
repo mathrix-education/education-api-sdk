@@ -4,8 +4,14 @@ import {Vote, VoteValue} from '../models/vote';
 import {Observable} from 'rxjs';
 import {DataResponse} from '../lib/responses/data.response';
 import {BaseUrl} from '../education-api-sdk.config';
-import {Inject} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 
+/**
+ * /votes endpoints.
+ */
+@Injectable({
+  providedIn: 'root'
+})
 export class VotesEndpoint extends Endpoint<Vote> {
   constructor(http: HttpClient, @Inject(BaseUrl) base: string) {
     super(http, base, 'votes');

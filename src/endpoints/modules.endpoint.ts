@@ -2,8 +2,14 @@ import {Endpoint} from '../lib/endpoints/endpoint';
 import {Module} from '../models/module';
 import {HttpClient} from '@angular/common/http';
 import {BaseUrl} from '../education-api-sdk.config';
-import {Inject} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 
+/**
+ * /modules endpoints.
+ */
+@Injectable({
+  providedIn: 'root'
+})
 export class ModulesEndpoint extends Endpoint<Module> {
   constructor(http: HttpClient, @Inject(BaseUrl) base: string) {
     super(http, base, 'modules');

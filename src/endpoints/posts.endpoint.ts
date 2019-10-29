@@ -3,8 +3,13 @@ import {Post} from '../models/post';
 import {HttpClient} from '@angular/common/http';
 import {Create} from '../lib/adapters/create';
 import {BaseUrl} from '../education-api-sdk.config';
-import {Inject} from '@angular/core';
-
+import {Inject, Injectable} from '@angular/core';
+/**
+ * /posts endpoints.
+ */
+@Injectable({
+  providedIn: 'root'
+})
 export class PostsEndpoint extends Endpoint<Post> {
   constructor(http: HttpClient, @Inject(BaseUrl) base: string) {
     super(http, base, 'posts');

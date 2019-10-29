@@ -6,7 +6,12 @@ import {CommentAdapter} from '../adapters/comment.adapter';
 import {Create} from '../lib/adapters/create';
 import {BaseUrl} from '../education-api-sdk.config';
 
-@Injectable({providedIn: 'root'})
+/**
+ * /comments endpoints.
+ */
+@Injectable({
+  providedIn: 'root'
+})
 export class CommentsEndpoint extends Endpoint<Comment> {
   constructor(http: HttpClient, @Inject(BaseUrl) base: string) {
     super(http, base, 'comments', new CommentAdapter());

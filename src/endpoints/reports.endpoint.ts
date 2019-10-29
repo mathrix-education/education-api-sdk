@@ -3,8 +3,14 @@ import {Report} from '../models/report';
 import {HttpClient} from '@angular/common/http';
 import {Create} from '../lib/adapters/create';
 import {BaseUrl} from '../education-api-sdk.config';
-import {Inject} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 
+/**
+ * /reports endpoints.
+ */
+@Injectable({
+  providedIn: 'root'
+})
 export class ReportsEndpoint extends Endpoint<Report> {
   constructor(http: HttpClient, @Inject(BaseUrl) base: string) {
     super(http, base, 'reports');
