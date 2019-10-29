@@ -65,7 +65,9 @@ export abstract class Endpoint<T extends Model> {
   protected searchQueryString<U = T>(options: ListOptions<U> | RelationListOptions<U>): string {
     const parts: string[] = [];
     // Assert that the given parameter is usable in the search.
-    const isUsable = (...keys: (keyof ListOptions<U>)[]) => keys.map(key => key in options && options[key] !== null);
+    const isUsable = (...keys: (keyof ListOptions<U>)[]) => {
+      return keys.findIndex(key => options[key] !== undefined && options[key] !== null) !== -1;
+    };
 
     if (isUsable('query')) {
       parts.push(`q=${options.query}`);
