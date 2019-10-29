@@ -64,6 +64,7 @@ export abstract class Endpoint<T extends Model> {
    */
   protected searchQueryString<U = T>(options: ListOptions<U> | RelationListOptions<U>): string {
     const parts: string[] = [];
+    // Assert that the given parameter is usable in the search.
     const isUsable = (...keys: (keyof ListOptions<U>)[]) => keys.map(key => key in options && options[key] !== null);
 
     if (isUsable('query')) {
@@ -71,11 +72,11 @@ export abstract class Endpoint<T extends Model> {
     }
 
     if (isUsable('page')) {
-      parts.push(`page=${options.query}`);
+      parts.push(`page=${options.page}`);
     }
 
     if (isUsable('per_page')) {
-      parts.push(`per_page=${options.query}`);
+      parts.push(`per_page=${options.per_page}`);
     }
 
     if (isUsable('sort_by', 'sort_dir')) {

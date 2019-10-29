@@ -2,13 +2,13 @@ import {Endpoint} from '../lib/endpoints/endpoint';
 import {Activity} from '../models/activity';
 import {HttpClient} from '@angular/common/http';
 import {Inject, Injectable} from '@angular/core';
-import {BaseUrl} from '../education-api-sdk.config';
 import {Module} from '../models/module';
 import {RelationListOptions} from '../lib/options/relation-list-options';
 import {ReadOptions} from '../lib/options/read-options';
 import {UpdateOptions} from '../lib/options/update-options';
 import {RelationReorderOptions} from '../lib/options/relation-reorder-options';
 import {Create} from '../lib/adapters/create';
+import {BaseUrl} from '../education-api-sdk.config';
 
 /**
  * /activities endpoint.
