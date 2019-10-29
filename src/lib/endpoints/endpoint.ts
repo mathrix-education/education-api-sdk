@@ -70,7 +70,7 @@ export abstract class Endpoint<T extends Model> {
     };
 
     if (isUsable('query')) {
-      parts.push(`q=${options.query}`);
+      parts.push(`query=${options.query}`);
     }
 
     if (isUsable('page')) {
