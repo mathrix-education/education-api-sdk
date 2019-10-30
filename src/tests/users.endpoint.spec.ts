@@ -26,4 +26,10 @@ describe('UsersEndpoint', () => {
     usersEndpoint.list({query: 'julien'}).subscribe();
     backend.expectOne(`${environment.config.baseUrl}/users?q=julien`);
   });
+
+  it('DELETE /users/{userId}/cache', () => {
+    usersEndpoint.deleteCache(50).subscribe();
+    const req = backend.expectOne(`${environment.config.baseUrl}/users/50/cache`);
+    expect(req.request.method).toEqual('DELETE');
+  });
 });

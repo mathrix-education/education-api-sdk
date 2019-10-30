@@ -55,11 +55,19 @@ export class UsersEndpoint extends Endpoint<User> {
   }
 
   /**
-   * DELETE /users/{userId}/cards
+   * DELETE /users/{userId}
    * @param userId The user id.
    */
   delete(userId: number) {
     return this.defaultDelete(userId);
+  }
+
+  /**
+   * DELETE /users/{userId}/cache
+   * @param userId The user id.
+   */
+  deleteCache(userId: number) {
+    return this.http.delete(`${this.url}/${userId}/cache`);
   }
 
   /**
