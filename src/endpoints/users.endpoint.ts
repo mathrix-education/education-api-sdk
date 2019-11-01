@@ -34,15 +34,16 @@ export class UsersEndpoint extends Endpoint<User> {
    * @param user The user.
    */
   create(user: Create<User>) {
-
+    return this.defaultCreate(user);
   }
 
   /**
    * GET /users/{userId}
    * @param userId The user id.
+   * @param options The options.
    */
-  read(userId: number) {
-    return this.defaultRead(userId, {expand: ['grade']});
+  read(userId: number, options: ListOptions<User>) {
+    return this.defaultRead(userId, options);
   }
 
   /**
