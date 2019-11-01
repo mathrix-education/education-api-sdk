@@ -9,6 +9,7 @@ import {Purchase} from '../models/purchase';
 import {Subscription} from '../models/subscription';
 import {Create} from '../lib/adapters/create';
 import {BaseUrl} from '../education-api-sdk.config';
+import {RelationListOptions} from '../lib/options/relation-list-options';
 
 /**
  * /users endpoint.
@@ -42,7 +43,7 @@ export class UsersEndpoint extends Endpoint<User> {
    * @param userId The user id.
    * @param options The options.
    */
-  read(userId: number, options: ListOptions<User>) {
+  read(userId: number, options?: ListOptions<User>) {
     return this.defaultRead(userId, options);
   }
 
@@ -90,16 +91,18 @@ export class UsersEndpoint extends Endpoint<User> {
   /**
    * GET /users/{userId}/purchases
    * @param userId The user id.
+   * @param options The relation list options.
    */
-  listPurchases(userId: number) {
-    return this.defaultRelationList<Purchase>(userId, 'purchases');
+  listPurchases(userId: number, options?: RelationListOptions<Purchase>) {
+    return this.defaultRelationList<Purchase>(userId, 'purchases', options);
   }
 
   /**
    * GET /users/{userId}/subscriptions
    * @param userId The user id.
+   * @param options The relation list options.
    */
-  listSubscriptions(userId: number) {
-    return this.defaultRelationList<Subscription>(userId, 'subscriptions');
+  listSubscriptions(userId: number, options?: RelationListOptions<Subscription>) {
+    return this.defaultRelationList<Subscription>(userId, 'subscriptions', options);
   }
 }
