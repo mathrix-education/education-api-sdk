@@ -12,9 +12,12 @@ import {Inject, Injectable} from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class VotesEndpoint extends Endpoint<Vote> {
-  constructor(http: HttpClient, @Inject(BaseUrl) base: string) {
-    super(http, base, 'votes');
+export class VotesEndpoint {
+
+  private readonly url: string;
+
+  constructor(private http: HttpClient, @Inject(BaseUrl) base: string) {
+    this.url = `${base}/votes`;
   }
 
   /**

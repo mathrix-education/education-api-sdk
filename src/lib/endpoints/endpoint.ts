@@ -14,11 +14,12 @@ import {DefaultAdapter} from '../adapters/default.adapter';
 import {DeleteOptions} from '../options/delete-options';
 import {RelationReorderOptions} from '../options/relation-reorder-options';
 import {Create} from '../adapters/create';
+import {LaxCrud} from './crud';
 
 /**
  * Base class to make API endpoints.
  */
-export abstract class Endpoint<T extends Model> {
+export abstract class Endpoint<T extends Model> implements LaxCrud {
 
   protected constructor(
     protected http: HttpClient,

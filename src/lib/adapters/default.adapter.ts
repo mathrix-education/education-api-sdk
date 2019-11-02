@@ -1,6 +1,5 @@
 import {Adapter} from './adapter';
 import {LaxPartial} from './lax-partial';
-import {Writable} from 'ts-essentials/dist/types';
 
 export interface AdapterConfig {
   dates: string[];
