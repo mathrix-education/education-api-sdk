@@ -1,22 +1,20 @@
 import {Inject, Injectable} from '@angular/core';
-import {Endpoint} from '../lib/endpoints/endpoint';
-import {Grade} from '../models/grade';
 import {HttpClient} from '@angular/common/http';
-import {DefaultAdapter} from '../lib/adapters/default.adapter';
-import {File as FileModel} from '../models/file';
 import {DataResponse} from '../lib/responses/data.response';
 import {Directory} from '../models/directory';
 import {BaseUrl} from '../education-api-sdk.config';
 
 /**
- * /grades endpoint.
+ * /Files endpoint.
  */
 @Injectable({
   providedIn: 'root'
 })
-export class FilesEndpoint extends Endpoint<FileModel> {
-  constructor(http: HttpClient, @Inject(BaseUrl) base: string) {
-    super(http, base, 'files', new DefaultAdapter<Grade>());
+export class FilesEndpoint {
+  private readonly url: string;
+
+  constructor(private http: HttpClient, @Inject(BaseUrl) base: string) {
+    this.url = `${base}/files`;
   }
 
   /**
@@ -24,7 +22,7 @@ export class FilesEndpoint extends Endpoint<FileModel> {
    * List the products.
    */
   list(directory: string) {
-    return this.http.get<DataResponse<Directory | File>>(`${this.url}/list${directory}`);
+    return this.http.get<DataResponse<Directory | File>>(`${this.url}/list/${directory}`);
   }
 
   /**
@@ -32,7 +30,7 @@ export class FilesEndpoint extends Endpoint<FileModel> {
    * @param path the file path.
    */
   read(path: string) {
-    return this.defaultRead(path);
+    return this.http.get(path);
   }
 
   /**
@@ -52,7 +50,7 @@ export class FilesEndpoint extends Endpoint<FileModel> {
    * @param destination: The destination path.
    */
   update(path: string, destination: string) {
-    return this.defaultUpdate(path, {path: destination});
+    return this.http.patch(`${this.url}/${path}`, {path: destination});
   }
 
   /**
@@ -60,6 +58,6 @@ export class FilesEndpoint extends Endpoint<FileModel> {
    * @param path The file path.
    */
   delete(path: string) {
-    return this.defaultDelete(path);
+    return this.http.delete(`${this.url}/${path}`);
   }
 }

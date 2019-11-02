@@ -12,9 +12,12 @@ import {Inject, Injectable} from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class SubscriptionsEndpoint extends Endpoint<Subscription> {
-  constructor(http: HttpClient, @Inject(BaseUrl) base: string) {
-    super(http, base, ' subscriptions');
+export class SubscriptionsEndpoint {
+
+  private readonly url;
+
+  constructor(private http: HttpClient, @Inject(BaseUrl) base: string) {
+    this.url = `${base}/subscriptions`;
   }
 
 
@@ -55,6 +58,6 @@ export class SubscriptionsEndpoint extends Endpoint<Subscription> {
    * @param subscriptionId The subscription id.
    */
   listInvoices(subscriptionId: string) {
-    return this.defaultRelationList(subscriptionId, 'invoices');
+    return this.http.get(`${this.url}/${subscriptionId}/invoices`);
   }
 }

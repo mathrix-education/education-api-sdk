@@ -8,22 +8,22 @@ import {LaxPartial} from '../adapters/lax-partial';
 /**
  * Specify how crud model shall be implemented.
  */
-export interface StrictCrud {
+export abstract class Crud {
   /**
    * List the abstract model.
    * @param options The abstract model options.
    */
-  list(options?: ListOptions<Model>);
+  list?(options?: ListOptions<Model>);
 
   /**
    * @param model The model to create.
    */
-  create(model: Model);
+  create?(model: Model);
 
   /**
    * Read the abstract model.
    */
-  read(id: any, options: ReadOptions<Model>);
+  read?(id: any, options: ReadOptions<Model>);
 
   /**
    * Update the abstract model.
@@ -31,13 +31,12 @@ export interface StrictCrud {
    * @param model The abstract model to update.
    * @param options The abstract update model options.
    */
-  update(id: ModelId, model: Model, options: UpdateOptions<Model>);
+  update?(id: ModelId, model: Model, options: UpdateOptions<Model>);
 
   /**
    * Delete the abstract model.
    * @param id The model Id.
    */
-  delete(id: ModelId);
+  delete?(id: ModelId);
 }
 
-export type LaxCrud = LaxPartial<StrictCrud>;

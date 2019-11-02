@@ -14,12 +14,12 @@ import {DefaultAdapter} from '../adapters/default.adapter';
 import {DeleteOptions} from '../options/delete-options';
 import {RelationReorderOptions} from '../options/relation-reorder-options';
 import {Create} from '../adapters/create';
-import {LaxCrud} from './crud';
+import {Crud} from './crud';
 
 /**
  * Base class to make API endpoints.
  */
-export abstract class Endpoint<T extends Model> implements LaxCrud {
+export abstract class Endpoint<T extends Model> extends Crud {
 
   protected constructor(
     protected http: HttpClient,
@@ -27,6 +27,7 @@ export abstract class Endpoint<T extends Model> implements LaxCrud {
     protected endpoint: string = null,
     protected defaultAdapter: Adapter<T> = null,
   ) {
+    super();
     // Remove first slash if needed
     if (this.endpoint.charAt(0) === '/') {
       this.endpoint = this.endpoint.substr(1);
