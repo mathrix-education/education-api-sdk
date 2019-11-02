@@ -5,6 +5,7 @@ import {Inject, Injectable} from '@angular/core';
 import {CommentAdapter} from '../adapters/comment.adapter';
 import {Create} from '../lib/adapters/create';
 import {BaseUrl} from '../education-api-sdk.config';
+import {ListOptions} from '../lib/options/list-options';
 
 /**
  * /comments endpoints.
@@ -21,8 +22,8 @@ export class CommentsEndpoint extends Endpoint<Comment> {
    * GET /comments
    * List the comments.
    */
-  list() {
-    return this.defaultList();
+  list(options: ListOptions<Comment>) {
+    return this.defaultList(options);
   }
 
   /**
@@ -56,13 +57,5 @@ export class CommentsEndpoint extends Endpoint<Comment> {
    */
   delete(commentId: number) {
     return this.defaultDelete(commentId);
-  }
-
-  /**
-   * GET /posts/latest
-   * List the latest comments.
-   */
-  listLatest() {
-    return this.defaultList({sort_by: 'created_at', sort_dir: 'desc'});
   }
 }
