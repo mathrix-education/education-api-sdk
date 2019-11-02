@@ -2,7 +2,6 @@ import {ListOptions} from '../options/list-options';
 import {Model, ModelId} from '../models/model';
 import {ReadOptions} from '../options/read-options';
 import {UpdateOptions} from '../options/update-options';
-import {LaxPartial} from '../adapters/lax-partial';
 
 
 /**
@@ -23,7 +22,7 @@ export abstract class Crud {
   /**
    * Read the abstract model.
    */
-  read?(id: any, options: ReadOptions<Model>);
+  read?(id: any, options?: ReadOptions<Model>);
 
   /**
    * Update the abstract model.
@@ -31,7 +30,7 @@ export abstract class Crud {
    * @param model The abstract model to update.
    * @param options The abstract update model options.
    */
-  update?(id: ModelId, model: Model, options: UpdateOptions<Model>);
+  update?(id: ModelId, model: Model, options?: UpdateOptions<Model>);
 
   /**
    * Delete the abstract model.
