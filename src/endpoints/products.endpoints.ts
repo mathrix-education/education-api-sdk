@@ -4,13 +4,15 @@ import {HttpClient} from '@angular/common/http';
 import {Create} from '../lib/adapters/create';
 import {BaseUrl} from '../education-api-sdk.config';
 import {Inject, Injectable} from '@angular/core';
+import {ListOptions} from '../lib/options/list-options';
 
 /**
  * /products endpoints.
  */
 @Injectable({
   providedIn: 'root'
-})export class ProductsEndpoint extends Endpoint<Product> {
+})
+export class ProductsEndpoint extends Endpoint<Product> {
   constructor(http: HttpClient, @Inject(BaseUrl) base: string) {
     super(http, base, 'products');
   }
@@ -19,8 +21,8 @@ import {Inject, Injectable} from '@angular/core';
    * GET /products
    * List the products.
    */
-  list() {
-    return this.defaultList();
+  list(options?: ListOptions<Product>) {
+    return this.defaultList(options);
   }
 
   /**
