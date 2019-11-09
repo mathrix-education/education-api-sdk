@@ -3,6 +3,7 @@ import {Module} from '../models/module';
 import {HttpClient} from '@angular/common/http';
 import {BaseUrl} from '../education-api-sdk.config';
 import {Inject, Injectable} from '@angular/core';
+import {Create} from '../lib/adapters/create';
 
 /**
  * /modules endpoints.
@@ -27,7 +28,7 @@ export class ModulesEndpoint extends Endpoint<Module> {
    * POST /modules
    * @param module The module model.
    */
-  create(module: Module) {
+  create(module: Create<Module>) {
     return this.defaultCreate(module);
   }
 
