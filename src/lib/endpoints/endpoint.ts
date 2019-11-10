@@ -47,6 +47,14 @@ export abstract class Endpoint<T extends Model> extends Crud {
   }
 
   /**
+   * Wrap an array of query parameters string to a single string.
+   * @param parts The different parts of the query (example: 'query=user');
+   */
+  private static wrapQuery(parts: string[]) {
+    return (parts.length > 0) ? `?${parts.join('&')}` : '';
+  }
+
+  /**
    * Generate the selector to target models. By default, it :key/:value and :key parameter is ignored if :key equals id.
    * @param key The key selector.
    * @param id The id selector.
@@ -64,7 +72,7 @@ export abstract class Endpoint<T extends Model> extends Crud {
    * @param options The list request options.
    * @see ListOptions
    */
-  protected searchQueryString<U = T>(options: ListOptions<U> | RelationListOptions<U>): string {
+  protected searchQueryListString<U = T>(options: ListOptions<U> | RelationListOptions<U>): string {
     const parts: string[] = [];
     // Assert that the given parameter is usable in the search.
     const isUsable = (...keys: (keyof ListOptions<U>)[]) => {
@@ -94,12 +102,28 @@ export abstract class Endpoint<T extends Model> extends Crud {
       });
     }
 
-    if (parts.length > 0) {
-      return `?${parts.join('&')}`;
-    } else {
-      return '';
-    }
+    return Endpoint.wrapQuery(parts);
   }
+
+  /**
+   * Generate the querystring for the read request.
+   * @param options The read request options.
+   * @see ReadOptions
+   */
+  protected searchQueryReadString<U = T>(options: ReadOptions<U>): string {
+    const parts: string[] = [];
+    // Assert that the given parameter is usable in the search.
+    const isUsable = (...keys: (keyof ReadOptions<U>)[]) => {
+      return keys.findIndex(key => options[key] !== undefined && options[key] !== null) !== -1;
+    };
+
+    if (isUsable('expand')) {
+      parts.push(`expand=${options.expand.join(',')}`);
+    }
+
+    return Endpoint.wrapQuery(parts);
+  }
+
 
   /**
    * Extract the adapter from the options or the default one.
@@ -119,7 +143,7 @@ export abstract class Endpoint<T extends Model> extends Crud {
    * @see ListOptions
    */
   protected defaultList(options: ListOptions<T> = {}) {
-    return this.http.get(`${this.url}${this.searchQueryString(options)}`)
+    return this.http.get(`${this.url}${this.searchQueryListString(options)}`)
       .pipe(
         map((response: PaginatedResponse<T>) => {
           response.data = this.getAdapter<T>(options).adaptMany(response.data);
@@ -149,7 +173,7 @@ export abstract class Endpoint<T extends Model> extends Crud {
    * @see ReadOptions
    */
   protected defaultRead(id: ModelId, options: ReadOptions<T> = {}) {
-    return this.http.get(`${this.url}/${this.selector(options.key, id)}`)
+    return this.http.get(`${this.url}/${this.selector(options.key, id)}${this.searchQueryReadString(options)}`)
       .pipe(map((response: DataResponse<T>) => {
         response.data = this.getAdapter<T>(options).adapt(response.data);
         return response;
@@ -193,7 +217,7 @@ export abstract class Endpoint<T extends Model> extends Crud {
    * @see RelationListOptions
    */
   protected defaultRelationList<U extends Model>(id: ModelId, relation: string, options: RelationListOptions<U> = {}) {
-    return this.http.get(`${this.url}/${this.selector<U>(options.key, id)}/${relation}${this.searchQueryString<U>(options)}`)
+    return this.http.get(`${this.url}/${this.selector<U>(options.key, id)}/${relation}${this.searchQueryListString<U>(options)}`)
       .pipe(map((response: PaginatedResponse<U>) => {
         response.data = this.getAdapter<U>(options).adaptMany(response.data);
         return response;
