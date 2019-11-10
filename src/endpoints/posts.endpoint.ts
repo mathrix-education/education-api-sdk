@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Create} from '../lib/adapters/create';
 import {BaseUrl} from '../education-api-sdk.config';
 import {Inject, Injectable} from '@angular/core';
+
 /**
  * /posts endpoints.
  */

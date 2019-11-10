@@ -1,10 +1,10 @@
-import {Model, ModelWithDates} from '../lib/models/model';
+import {ModelWithDatesOrder} from '../lib/models/model';
 
 // tslint:disable:variable-name
 
 export type ProductType = 'pack' | 'training' | 'section' | 'lesson' | 'premium';
 
-export interface Product extends ModelWithDates<number> {
+export interface Product extends ModelWithDatesOrder<number> {
   name: string;
   slug: string;
   type: ProductType;
@@ -12,7 +12,6 @@ export interface Product extends ModelWithDates<number> {
   price: number;
   visible: boolean;
   buyable: boolean;
-  order: number;
   parent_id: number;
   module_id: number;
 }

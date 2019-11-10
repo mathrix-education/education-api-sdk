@@ -1,4 +1,3 @@
-import {Endpoint} from '../lib/endpoints/endpoint';
 import {HttpClient} from '@angular/common/http';
 import {Subscription} from '../models/subscription';
 import {Observable} from 'rxjs';

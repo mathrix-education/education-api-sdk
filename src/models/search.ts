@@ -1,4 +1,4 @@
-import {Model, ModelId} from '../lib/models/model';
+import {Model} from '../lib/models/model';
 
 // tslint:disable:variable-name
 

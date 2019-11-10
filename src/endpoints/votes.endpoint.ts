@@ -1,4 +1,3 @@
-import {Endpoint} from '../lib/endpoints/endpoint';
 import {HttpClient} from '@angular/common/http';
 import {Vote, VoteValue} from '../models/vote';
 import {Observable} from 'rxjs';

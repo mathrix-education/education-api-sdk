@@ -1,4 +1,4 @@
-import {Model, ModelWithDates} from '../lib/models/model';
+import {ModelWithDatesOrder} from '../lib/models/model';
 
 // tslint:disable:variable-name
 
@@ -6,11 +6,10 @@ export type ActivityType = 'video' | 'course' | 'test' | 'exercise' | 'summary' 
 
 export type MarkType = 'completed' | 'view' | 'to-revise';
 
-export interface Activity extends ModelWithDates<number> {
+export interface Activity extends ModelWithDatesOrder<number> {
   name: string;
   type: ActivityType;
   visible: boolean;
-  order: number;
   premium: boolean;
   reviewed: boolean;
   notion_id: number;

@@ -1,10 +1,10 @@
-import {Model, ModelWithDates} from '../lib/models/model';
+import {ModelWithDatesOrder} from '../lib/models/model';
 
 // tslint:disable:variable-name
 
 export type NotionType = 'normal' | 'premium' | 'reminder' | 'further';
 
-export interface Notion extends ModelWithDates<number> {
+export interface Notion extends ModelWithDatesOrder<number> {
   name: string;
   type: NotionType;
   visible: boolean;
