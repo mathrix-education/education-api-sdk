@@ -5,6 +5,7 @@ import {Create} from '../lib/adapters/create';
 import {BaseUrl} from '../education-api-sdk.config';
 import {Inject, Injectable} from '@angular/core';
 import {ListOptions} from '../lib/options/list-options';
+import {ReadOptions} from '../lib/options/read-options';
 
 /**
  * /products endpoints.
@@ -36,9 +37,10 @@ export class ProductsEndpoint extends Endpoint<Product> {
   /**
    * GET /products/{productId}
    * @param productId The product id.
+   * @param options: The read options.
    */
-  read(productId: number) {
-    return this.defaultRead(productId);
+  read(productId: number, options?: ReadOptions<Product>) {
+    return this.defaultRead(productId, options);
   }
 
   /**
@@ -93,14 +95,6 @@ export class ProductsEndpoint extends Endpoint<Product> {
    */
   related(productId: number) {
     return this.defaultRelationList(productId, 'items');
-  }
-
-  /**
-   * GET /products/{productsId}/recursive
-   * @param productId The product id.
-   */
-  recursive(productId: number) {
-    return this.defaultRelationList(productId, 'recursive');
   }
 
   /**
