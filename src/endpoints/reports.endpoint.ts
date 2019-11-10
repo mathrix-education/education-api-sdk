@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Create} from '../lib/adapters/create';
 import {BaseUrl} from '../education-api-sdk.config';
 import {Inject, Injectable} from '@angular/core';
+import {ListOptions} from '../lib/options/list-options';
 
 /**
  * /reports endpoints.
@@ -20,8 +21,8 @@ export class ReportsEndpoint extends Endpoint<Report> {
    * GET /reports
    * List the reports.
    */
-  list() {
-    return this.defaultList();
+  list(options?: ListOptions<Report>) {
+    return this.defaultList(options);
   }
 
   /**
