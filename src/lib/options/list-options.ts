@@ -8,6 +8,7 @@ export interface StrictListOptions<T> {
   per_page: number;
   sort_by: keyof T;
   sort_dir: 'asc' | 'desc';
+  expand: string[];
   filters: ListFilter<T>[];
 }
 

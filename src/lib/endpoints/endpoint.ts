@@ -102,6 +102,10 @@ export abstract class Endpoint<T extends Model> extends Crud {
       });
     }
 
+    if (isUsable('expand')) {
+      parts.push(`expand=${options.expand.join(',')}`);
+    }
+
     return Endpoint.wrapQuery(parts);
   }
 
