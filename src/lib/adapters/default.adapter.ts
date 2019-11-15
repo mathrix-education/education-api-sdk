@@ -48,7 +48,7 @@ export class DefaultAdapter<T> implements Adapter<T> {
     const raw = Object.assign({}, model);
 
     this.dates.forEach(date => {
-      if (date in raw && raw[date] !== null) {
+      if (date in raw && raw[date] !== null && model[date] instanceof Date) {
         raw[date] = raw[date].toISOString();
       }
     });
