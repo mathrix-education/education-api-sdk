@@ -21,7 +21,7 @@ export class CountriesEndpoint extends Endpoint<Country> {
    * GET /countries
    * @param options The list country request options.
    */
-  list(options: ListOptions<Country>) {
+  list(options?: ListOptions<Country>) {
     return this.defaultList(options);
   }
 
