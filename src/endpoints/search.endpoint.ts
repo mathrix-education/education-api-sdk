@@ -1,8 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Search} from '../models/search';
-import {Endpoint} from '../lib/endpoints/endpoint';
-import {DataResponse} from '../lib/responses/data.response';
-import {BaseUrl} from '../education-api-sdk.config';
+import {DataResponse, Endpoint} from '@mathrix-education/iridium';
+import {BaseUrl} from '@mathrix-education/iridium';
 import {Inject, Injectable} from '@angular/core';
 
 /**

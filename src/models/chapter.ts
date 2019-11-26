@@ -1,4 +1,4 @@
-import {ModelWithDatesOrder} from '../lib/models/model';
+import {ModelWithDatesOrder} from '@mathrix-education/iridium';
 
 // tslint:disable:variable-name
 

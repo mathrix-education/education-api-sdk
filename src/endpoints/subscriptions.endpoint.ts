@@ -1,8 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Subscription} from '../models/subscription';
 import {Observable} from 'rxjs';
-import {DataResponse} from '../lib/responses/data.response';
-import {BaseUrl} from '../education-api-sdk.config';
+import {BaseUrl, DataResponse} from '@mathrix-education/iridium';
 import {Inject, Injectable} from '@angular/core';
 
 /**

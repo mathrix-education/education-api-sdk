@@ -1,13 +1,13 @@
-import {Endpoint} from '../lib/endpoints/endpoint';
+import {Endpoint} from '@mathrix-education/iridium';
 import {Grade} from '../models/grade';
 import {HttpClient} from '@angular/common/http';
 import {Inject, Injectable} from '@angular/core';
-import {DefaultAdapter} from '../lib/adapters/default.adapter';
-import {UpdateOptions} from '../lib/options/update-options';
+import {DefaultAdapter} from '@mathrix-education/iridium';
+import {UpdateOptions} from '@mathrix-education/iridium';
 import {Discipline} from '../models/discipline';
 import {Chapter} from '../models/chapter';
-import {DataResponse} from '../lib/responses/data.response';
-import {BaseUrl} from '../education-api-sdk.config';
+import {DataResponse} from '@mathrix-education/iridium';
+import {BaseUrl} from '@mathrix-education/iridium';
 
 /**
  * /grades endpoint.

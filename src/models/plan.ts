@@ -1,4 +1,4 @@
-import {Model} from '../lib/models/model';
+import {Model} from '@mathrix-education/iridium';
 
 // tslint:disable:variable-name
 

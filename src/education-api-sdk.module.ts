@@ -1,11 +1,10 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
-import {AuthTokenName, BaseUrl} from './education-api-sdk.config';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {TokenInterceptor} from './interceptors/bearer.interceptor';
+import {AuthTokenName, BaseUrl, IridiumModule} from '@mathrix-education/iridium';
 
 
 @NgModule({
-    imports: [HttpClientModule],
+    imports: [HttpClientModule, IridiumModule],
   }
 )
 
@@ -14,13 +13,9 @@ export class EducationAPISDKModule {
     return {
       ngModule: EducationAPISDKModule,
       providers: [
-        {
-          provide: HTTP_INTERCEPTORS,
-          useClass: TokenInterceptor,
-          multi: true
-        },
         {provide: BaseUrl, useValue: config.baseUrl},
-        {provide: AuthTokenName, useValue: config.authTokenName}
+        {provide: AuthTokenName, useValue: config.authTokenName},
+
       ]
     };
   }

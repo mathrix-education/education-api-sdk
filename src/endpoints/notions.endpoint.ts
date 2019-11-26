@@ -1,9 +1,9 @@
-import {Endpoint} from '../lib/endpoints/endpoint';
+import {Endpoint} from '@mathrix-education/iridium';
 import {Notion} from '../models/notion';
 import {HttpClient} from '@angular/common/http';
-import {DefaultAdapter} from '../lib/adapters/default.adapter';
+import {DefaultAdapter} from '@mathrix-education/iridium';
 import {Chapter} from '../models/chapter';
-import {BaseUrl} from '../education-api-sdk.config';
+import {BaseUrl} from '@mathrix-education/iridium';
 import {Inject, Injectable} from '@angular/core';
 
 /**

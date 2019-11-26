@@ -1,5 +1,5 @@
 import {Comment} from '../models/comment';
-import {DefaultAdapter} from '../lib/adapters/default.adapter';
+import {DefaultAdapter} from '@mathrix-education/iridium';
 
 export class CommentAdapter extends DefaultAdapter<Comment> {
   constructor() {

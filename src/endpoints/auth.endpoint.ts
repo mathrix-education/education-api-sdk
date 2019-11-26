@@ -1,9 +1,6 @@
-import {Endpoint} from '../lib/endpoints/endpoint';
+import {BaseUrl, DataResponse, Endpoint, MessageResponse} from '@mathrix-education/iridium';
 import {HttpClient} from '@angular/common/http';
-import {DataResponse} from '../lib/responses/data.response';
-import {MessageResponse} from '../lib/responses/message.response';
 import {Inject, Injectable} from '@angular/core';
-import {BaseUrl} from '../education-api-sdk.config';
 
 type TokenDataResponse = DataResponse<{ token: string }>;
 

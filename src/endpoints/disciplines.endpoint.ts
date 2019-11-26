@@ -1,11 +1,11 @@
 import {Inject, Injectable} from '@angular/core';
-import {Endpoint} from '../lib/endpoints/endpoint';
+import {Endpoint} from '@mathrix-education/iridium';
 import {Discipline} from '../models/discipline';
 import {HttpClient} from '@angular/common/http';
-import {DefaultAdapter} from '../lib/adapters/default.adapter';
-import {UpdateOptions} from '../lib/options/update-options';
-import {Create} from '../lib/adapters/create';
-import {BaseUrl} from '../education-api-sdk.config';
+import {DefaultAdapter} from '@mathrix-education/iridium';
+import {UpdateOptions} from '@mathrix-education/iridium';
+import {Create} from '@mathrix-education/iridium';
+import {BaseUrl} from '@mathrix-education/iridium';
 
 /**
  * /disciplines endpoint.

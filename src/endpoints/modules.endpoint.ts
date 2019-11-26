@@ -1,9 +1,9 @@
-import {Endpoint} from '../lib/endpoints/endpoint';
+import {Endpoint} from '@mathrix-education/iridium';
 import {Module} from '../models/module';
 import {HttpClient} from '@angular/common/http';
-import {BaseUrl} from '../education-api-sdk.config';
+import {BaseUrl} from '@mathrix-education/iridium';
 import {Inject, Injectable} from '@angular/core';
-import {Create} from '../lib/adapters/create';
+import {Create} from '@mathrix-education/iridium';
 
 /**
  * /modules endpoints.

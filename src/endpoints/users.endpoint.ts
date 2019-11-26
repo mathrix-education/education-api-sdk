@@ -1,15 +1,13 @@
-import {Endpoint} from '../lib/endpoints/endpoint';
+import {Endpoint, ListOptions, RelationListOptions} from '@mathrix-education/iridium';
 import {User} from '../models/user';
 import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ListOptions} from '../lib/options/list-options';
 import {Card} from '../models/card';
 import {Product} from '../models/product';
 import {Purchase} from '../models/purchase';
 import {Subscription} from '../models/subscription';
-import {Create} from '../lib/adapters/create';
-import {BaseUrl} from '../education-api-sdk.config';
-import {RelationListOptions} from '../lib/options/relation-list-options';
+import {Create} from '@mathrix-education/iridium';
+import {BaseUrl} from '@mathrix-education/iridium';
 
 /**
  * /users endpoint.

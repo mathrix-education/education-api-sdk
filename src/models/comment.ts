@@ -1,6 +1,7 @@
-import {ModelWithDates} from '../lib/models/model';
+import {ModelWithDates} from '@mathrix-education/iridium';
 
 // tslint:disable:variable-name
+
 
 export interface Comment extends ModelWithDates<number> {
   content: string;
