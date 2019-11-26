@@ -1,10 +1,8 @@
-import {Endpoint, ListOptions} from '@mathrix-education/iridium';
+import {BaseUrl, Create, Endpoint, ListOptions} from '@mathrix-education/iridium';
 import {Comment} from '../models/comment';
 import {HttpClient} from '@angular/common/http';
 import {Inject, Injectable} from '@angular/core';
 import {CommentAdapter} from '../adapters/comment.adapter';
-import {Create} from '@mathrix-education/iridium';
-import {BaseUrl} from '@mathrix-education/iridium';
 
 /**
  * /comments endpoints.

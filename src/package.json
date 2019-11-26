@@ -9,7 +9,8 @@
     "url": "ssh://git@github.com/mathrix-education/education-api-sdk"
   },
   "dependencies": {
-    "ts-essentials": "3.0.2"
+    "ts-essentials": "3.0.2",
+    "@mathrix-education/iridium": "1.0.0-dev-fb0ee8b"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

@@ -1,4 +1,4 @@
-import {Endpoint, ListOptions, RelationListOptions} from '@mathrix-education/iridium';
+import {BaseUrl, Create, Endpoint, ListOptions, RelationListOptions} from '@mathrix-education/iridium';
 import {User} from '../models/user';
 import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
@@ -6,8 +6,6 @@ import {Card} from '../models/card';
 import {Product} from '../models/product';
 import {Purchase} from '../models/purchase';
 import {Subscription} from '../models/subscription';
-import {Create} from '@mathrix-education/iridium';
-import {BaseUrl} from '@mathrix-education/iridium';
 
 /**
  * /users endpoint.

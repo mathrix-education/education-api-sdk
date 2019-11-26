@@ -1,8 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Vote, VoteValue} from '../models/vote';
 import {Observable} from 'rxjs';
-import {DataResponse} from '@mathrix-education/iridium';
-import {BaseUrl} from '@mathrix-education/iridium';
+import {BaseUrl, DataResponse} from '@mathrix-education/iridium';
 import {Inject, Injectable} from '@angular/core';
 
 /**

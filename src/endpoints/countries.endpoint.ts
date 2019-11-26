@@ -1,9 +1,7 @@
 import {Inject, Injectable} from '@angular/core';
-import {Endpoint, ListOptions} from '@mathrix-education/iridium';
+import {BaseUrl, Create, Endpoint, ListOptions} from '@mathrix-education/iridium';
 import {HttpClient} from '@angular/common/http';
 import {Country} from '../models/country';
-import {Create} from '@mathrix-education/iridium';
-import {BaseUrl} from '@mathrix-education/iridium';
 
 /**
  * /countries endpoint.

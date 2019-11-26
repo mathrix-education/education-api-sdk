@@ -1,8 +1,7 @@
 import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {DataResponse} from '@mathrix-education/iridium';
+import {BaseUrl, DataResponse} from '@mathrix-education/iridium';
 import {Directory} from '../models/directory';
-import {BaseUrl} from '@mathrix-education/iridium';
 
 /**
  * /Files endpoint.

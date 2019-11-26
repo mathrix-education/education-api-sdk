@@ -1,11 +1,7 @@
-import {Endpoint} from '@mathrix-education/iridium';
+import {BaseUrl, Create, DefaultAdapter, Endpoint, UpdateOptions} from '@mathrix-education/iridium';
 import {Chapter} from '../models/chapter';
 import {HttpClient} from '@angular/common/http';
-import {DefaultAdapter} from '@mathrix-education/iridium';
-import {UpdateOptions} from '@mathrix-education/iridium';
-import {Create} from '@mathrix-education/iridium';
 import {Inject, Injectable} from '@angular/core';
-import {BaseUrl} from '@mathrix-education/iridium';
 
 /**
  * /chapters endpoints.

@@ -1,7 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Search} from '../models/search';
-import {DataResponse, Endpoint} from '@mathrix-education/iridium';
-import {BaseUrl} from '@mathrix-education/iridium';
+import {BaseUrl, DataResponse, Endpoint} from '@mathrix-education/iridium';
 import {Inject, Injectable} from '@angular/core';
 
 /**

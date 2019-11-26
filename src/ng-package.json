@@ -2,9 +2,13 @@
   "$schema": "../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../dist/",
   "lib": {
-    "entryFile": "public-api.ts"
+    "entryFile": "public-api.ts",
+    "umdModuleIds": {
+      "@mathrix-education/iridium": "@mathrix-education/iridium"
+    }
   },
   "whitelistedNonPeerDependencies": [
-    "ts-essentials"
+    "ts-essentials",
+    "@mathrix-education/iridium"
   ]
 }

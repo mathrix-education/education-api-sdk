@@ -18,13 +18,5 @@ export * from './endpoints/subscriptions.endpoint';
 export * from './endpoints/users.endpoint';
 export * from './endpoints/votes.endpoint';
 
-// Responses
-// export * from './lib/responses/data.response';
-// export * from './lib/responses/error.response';
-// export * from './lib/responses/message.response';
-// export * from './lib/responses/paginated.response';
-// export * from './lib/responses/response';
-
 // Modules
-// export * from './education-api-sdk.config';
 export * from './education-api-sdk.module';
