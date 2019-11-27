@@ -19,7 +19,7 @@
     "@angular/core": "^8.2.7",
     "@angular/platform-browser": "^8.2.7",
     "@angular/platform-browser-dynamic": "^8.2.7",
-    "@mathrix-education/iridium": "1.0.0-dev-fb0ee8b",
+    "@mathrix-education/iridium": "1.0.0-dev-7909d58",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"

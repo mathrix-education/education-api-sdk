@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "ts-essentials": "3.0.2",
-    "@mathrix-education/iridium": "1.0.0-dev-fb0ee8b"
+    "@mathrix-education/iridium": "1.0.0-dev-7909d58"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
